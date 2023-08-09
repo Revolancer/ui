@@ -13,10 +13,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./src/",
-    "paths": {
-      "@/*": ["./*"]
-    },
     "declaration": true,
     "outDir": "dist",
     "rootDir": "src"

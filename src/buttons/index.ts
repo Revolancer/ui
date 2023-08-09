@@ -1,5 +1,5 @@
 import { Interactive } from 'react-interactive';
-import { darkTheme, styled } from '@/styles';
+import { darkTheme, styled } from '../styles';
 import NextLink from 'next/link';
 
 const styles = {
