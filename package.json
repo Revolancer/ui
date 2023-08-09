@@ -1,0 +1,24 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "Revolancer UI Library",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "author": "Skye Brady <skye@revolancer.com>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "next": "^13.4.13",
+    "react": "^18.2.0"
+  }
+}
