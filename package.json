@@ -1,8 +1,12 @@
 {
   "name": "@revolancer/ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Revolancer UI Library",
-  "main": "index.ts",
+  "main": "src/index.ts",
+  "exports": {
+    "./buttons": "./src/buttons/index.ts",
+    "./styles": "./src/styles/index.ts"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "prettier --check .",
