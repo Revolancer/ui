@@ -1,10 +1,11 @@
 {
   "name": "@revolancer/ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Revolancer UI Library",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
-    "./buttons": "./dist/buttons/index.js"
+    ".": "./dist/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
