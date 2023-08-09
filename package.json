@@ -1,16 +1,16 @@
 {
   "name": "@revolancer/ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Revolancer UI Library",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "exports": {
-    ".": "./src/index.ts",
-    "./buttons": "./src/buttons/index.ts"
+    "./buttons": "./dist/buttons/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "prettier --check .",
-    "lint:fix": "prettier --write ."
+    "lint:fix": "prettier --write .",
+    "build": "tsc"
   },
   "author": "Skye Brady <skye@revolancer.com>",
   "license": "UNLICENSED",

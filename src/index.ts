@@ -7,4 +7,6 @@ export {
   theme,
   createTheme,
   config,
+  darkTheme,
+  globalStyles,
 } from './styles';
