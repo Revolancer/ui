@@ -10,5 +10,3 @@ export {
   darkTheme,
   globalStyles,
 } from './styles';
-
-export * as Buttons from './buttons';
