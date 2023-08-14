@@ -9,8 +9,10 @@
     "./buttons": "./dist/buttons/index.js"
   },
   "typesVersions": {
-     "*": {
-       "buttons": ["dist/buttons/index.d.ts"]
+    "*": {
+      "buttons": [
+        "dist/buttons/index.d.ts"
+      ]
     }
   },
   "scripts": {
