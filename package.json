@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
-    "./buttons": "./dist/buttons/index.js"
+    "./buttons": "./dist/buttons/index.js",
+    "./headings": "./dist/headings/index.js"
   },
   "typesVersions": {
      "*": {
