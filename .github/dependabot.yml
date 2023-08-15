@@ -17,3 +17,7 @@ updates:
       fontawesome:
         patterns:
           - '@fortawesome/*'
+      storybook:
+        patterns:
+          - '@storybook/*'
+          - 'storybook'
