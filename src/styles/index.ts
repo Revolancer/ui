@@ -264,3 +264,27 @@ export const globalStyles = globalCss({
     minHeight: '100vh',
   },
 });
+
+const loadingFrames = keyframes({
+  '0%': {
+    backgroundPosition: '-480px 0',
+  },
+  '100%': {
+    backgroundPosition: '480px 0',
+  },
+});
+
+export const loadingStyles = {
+  animationDuration: '2.4s',
+  animationFillMode: 'forwards',
+  animationIterationCount: 'infinite',
+  animationName: `${loadingFrames}`,
+  animationTimingFunction: 'linear',
+  backgroundColor: '$neutral300',
+  borderColor: '$neutral300',
+  background:
+    'linear-gradient(to right, $neutral300 0%, $neutral200 10%, $neutral300 20%)',
+  backgroundSize: '1000px 640px',
+
+  position: 'relative',
+};

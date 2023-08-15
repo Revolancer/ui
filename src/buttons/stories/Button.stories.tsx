@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, TertiaryButton } from '..';
+import { Button } from '..';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -44,13 +44,8 @@ export const Primary: Story = {
     size: 'medium',
     disabled: false,
     href: '#',
-  },
-  render: (args) => {
-    return (
-      <Button {...args} href="#">
-        Button
-      </Button>
-    );
+    loading: false,
+    children: 'Button',
   },
 };
 
@@ -59,13 +54,7 @@ export const Secondary: Story = {
     role: 'secondary',
     size: 'medium',
     href: '#',
-  },
-  render: (args) => {
-    return (
-      <Button {...args} href="#">
-        Button
-      </Button>
-    );
+    children: 'Button',
   },
 };
 
@@ -75,13 +64,7 @@ export const Disabled: Story = {
     size: 'medium',
     disabled: true,
     href: '#',
-  },
-  render: (args) => {
-    return (
-      <Button {...args} href="#">
-        Button
-      </Button>
-    );
+    children: 'Button',
   },
 };
 
@@ -91,13 +74,7 @@ export const DisabledSecondary: Story = {
     size: 'medium',
     disabled: true,
     href: '#',
-  },
-  render: (args) => {
-    return (
-      <Button {...args} href="#">
-        Button
-      </Button>
-    );
+    children: 'Button',
   },
 };
 
@@ -105,13 +82,7 @@ export const Small: Story = {
   args: {
     size: 'small',
     href: '#',
-  },
-  render: (args) => {
-    return (
-      <Button {...args} href="#">
-        Button
-      </Button>
-    );
+    children: 'Button',
   },
 };
 
@@ -119,12 +90,13 @@ export const Large: Story = {
   args: {
     size: 'large',
     href: '#',
+    children: 'Button',
   },
-  render: (args) => {
-    return (
-      <Button {...args} href="#">
-        Button
-      </Button>
-    );
+};
+
+export const Loading: Story = {
+  args: {
+    href: '#',
+    loading: true,
   },
 };
