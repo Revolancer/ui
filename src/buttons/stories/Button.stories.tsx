@@ -43,6 +43,7 @@ export const Primary: Story = {
     role: 'primary',
     size: 'medium',
     disabled: false,
+    href: '#',
   },
   render: (args) => {
     return (
@@ -57,6 +58,7 @@ export const Secondary: Story = {
   args: {
     role: 'secondary',
     size: 'medium',
+    href: '#',
   },
   render: (args) => {
     return (
@@ -72,6 +74,7 @@ export const Disabled: Story = {
     role: 'primary',
     size: 'medium',
     disabled: true,
+    href: '#',
   },
   render: (args) => {
     return (
@@ -87,6 +90,7 @@ export const DisabledSecondary: Story = {
     role: 'secondary',
     size: 'medium',
     disabled: true,
+    href: '#',
   },
   render: (args) => {
     return (
@@ -100,6 +104,7 @@ export const DisabledSecondary: Story = {
 export const Small: Story = {
   args: {
     size: 'small',
+    href: '#',
   },
   render: (args) => {
     return (
@@ -113,6 +118,7 @@ export const Small: Story = {
 export const Large: Story = {
   args: {
     size: 'large',
+    href: '#',
   },
   render: (args) => {
     return (
