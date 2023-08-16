@@ -4,6 +4,7 @@
   "description": "Revolancer UI Library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "homepage": "http://revolancer.github.io/ui",
   "exports": {
     ".": "./dist/index.js",
     "./buttons": "./dist/buttons/index.js",
@@ -20,12 +21,26 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "prettier --check .",
     "lint:fix": "prettier --write .",
-    "build": "tsc"
+    "build": "tsc",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build",
+    "storybook:deploy": "gh-pages -d storybook-static"
   },
   "author": "Skye Brady <skye@revolancer.com>",
   "license": "UNLICENSED",
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.2.3",
+    "@storybook/addon-interactions": "^7.2.3",
+    "@storybook/addon-links": "^7.2.3",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.2.3",
+    "@storybook/nextjs": "^7.2.3",
+    "@storybook/react": "^7.2.3",
+    "@storybook/testing-library": "^0.2.0",
+    "gh-pages": "^6.0.0",
     "prettier": "^3.0.1",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.2.3",
     "typescript": "^5.1.6"
   },
   "dependencies": {
@@ -34,7 +49,7 @@
     "@radix-ui/react-slider": "^1.1.2",
     "@stitches/react": "^1.2.8",
     "formik": "^2.4.3",
-    "next": "^13.4.13",
+    "next": "^13.4.16",
     "react": "^18.2.0",
     "react-interactive": "^1.1.2"
   },

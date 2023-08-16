@@ -1,5 +1,5 @@
 import { Interactive } from 'react-interactive';
-import { darkTheme, styled } from '../styles';
+import { darkTheme, loadingStyles, styled } from '../styles';
 import NextLink from 'next/link';
 
 const styles = {
@@ -85,6 +85,17 @@ const styles = {
       true: {
         pointerEvents: 'none',
         cursor: 'inherit',
+      },
+    },
+    loading: {
+      true: {
+        pointerEvents: 'none',
+        cursor: 'inherit',
+        '&::before': {
+          content: 'Button',
+          color: 'transparent',
+        },
+        ...loadingStyles,
       },
     },
   },
