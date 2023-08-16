@@ -1,4 +1,8 @@
 import { styled, darkTheme } from '../styles';
+import { Formik as FormikForm } from 'formik';
+import * as RadixSlider from '@radix-ui/react-slider';
+import * as RadixCheckbox from '@radix-ui/react-checkbox';
+import * as RadixSelect from '@radix-ui/react-select';
 
 //checked progress items
 export const CheckColumns = styled('div', {
