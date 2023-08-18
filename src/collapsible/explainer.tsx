@@ -3,8 +3,8 @@ import { Card, Flex, Divider } from '../layout';
 import { P } from '../text';
 import { UnstyledLink } from '../buttons';
 import { styled } from '../styles';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 export const Explainer = ({ text, children }: {text: string, children: any}) => {
   const [expanded, setExpanded] = useState(false);
@@ -35,7 +35,7 @@ export const Explainer = ({ text, children }: {text: string, children: any}) => 
               toggle();
             }}
           >
-            {/*<FontAwesomeIcon icon={faAngleDown} />*/}
+            <FontAwesomeIcon icon={faAngleDown} />
           </UnstyledLink>
         )}
       </Flex>
@@ -76,7 +76,7 @@ export const Explainer = ({ text, children }: {text: string, children: any}) => 
             }}
           >
             <Flex css={{ alignItems: 'center' }}>
-              {/*<FontAwesomeIcon icon={expanded ? faAngleUp : faAngleDown} />*/}
+              <FontAwesomeIcon icon={expanded ? faAngleUp : faAngleDown} />
               <P>Close Guide</P>
             </Flex>
           </UnstyledLink>

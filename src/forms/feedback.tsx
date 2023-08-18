@@ -1,9 +1,9 @@
-// import {
-// faCircleCheck,
-// faCircleInfo,
-//   faTriangleExclamation,
-// } from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+faCircleCheck,
+faCircleInfo,
+  faTriangleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FeedbackText, FeedbackTextAfter } from ".";
 
 export const Feedback = ({
@@ -13,7 +13,7 @@ export const Feedback = ({
   state?: 'feedback' | 'warning' | 'error' | 'success';
   children?: any;
 }) => {
-  /*let symbol = faCircleInfo;
+  let symbol = faCircleInfo;
   switch (state) {
     case 'warning':
     case 'error':
@@ -22,10 +22,10 @@ export const Feedback = ({
     case 'success':
       symbol = faCircleCheck;
       break;
-  }*/
+  }
   return (
     <FeedbackText state={state}>
-      {/*<FontAwesomeIcon icon={symbol} />*/}
+      <FontAwesomeIcon icon={symbol} />
       <FeedbackTextAfter>{children}</FeedbackTextAfter>
     </FeedbackText>
   );

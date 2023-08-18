@@ -1,7 +1,7 @@
 import { useFormikContext } from "formik";
 import { CheckboxWrapper, CheckboxRoot, CheckboxIndicator } from ".";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 export const Checkbox = ({
   name,
@@ -39,7 +39,7 @@ export const Checkbox = ({
         }
       >
         <CheckboxIndicator>
-          {/*<FontAwesomeIcon icon={faCheck} />*/}
+          <FontAwesomeIcon icon={faCheck} />
         </CheckboxIndicator>
       </CheckboxRoot>
       {children && <label htmlFor={id}>{children}</label>}

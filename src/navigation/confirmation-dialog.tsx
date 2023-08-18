@@ -3,8 +3,8 @@ import Modal from 'react-modal';
 import { Button, UnstyledLink } from '../buttons';
 import { useState } from 'react';
 import { Flex } from '../layout';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { H4, P } from '../text';
 
 const styles = styleconfig.theme;
@@ -94,7 +94,7 @@ export const ConfirmationDialog = ({
               }}
               css={{ fontSize: '$h5' }}
             >
-              {/*<FontAwesomeIcon icon={faClose} />*/}
+              <FontAwesomeIcon icon={faClose} />
             </UnstyledLink>
           </Flex>
           <P>{confirmationMessage}</P>

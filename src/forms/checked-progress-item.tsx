@@ -1,5 +1,5 @@
-//import { faCheck } from '@fortawesome/free-solid-svg-icons';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Flex } from '../layout';
 import { CheckIconBorder, CheckText } from '.';
 
@@ -13,7 +13,7 @@ export const CheckedProgressItem = ({
   return (
     <Flex>
       <CheckIconBorder checked={checked}>
-        {/*checked && <FontAwesomeIcon icon={faCheck} />*/}
+        {checked && <FontAwesomeIcon icon={faCheck} />}
       </CheckIconBorder>
       <CheckText checked={checked}>{children}</CheckText>
     </Flex>

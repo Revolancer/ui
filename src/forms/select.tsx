@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import * as RadixSelect from '@radix-ui/react-select';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import {
-//   faCheck,
-//   faChevronDown,
-//   faChevronUp,
-// } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCheck,
+  faChevronDown,
+  faChevronUp,
+} from '@fortawesome/free-solid-svg-icons';
 import { Field, FieldProps } from 'formik';
 // import { DateTime } from 'luxon';
 import { Feedback } from './feedback';
@@ -48,17 +48,17 @@ const Select = ({
             <SelectTrigger error={touched[name] && !!errors[name]}>
               <RadixSelect.Value placeholder={placeholder} />
               <SelectIcon>
-                {/*<FontAwesomeIcon icon={faChevronDown} />*/}
+                <FontAwesomeIcon icon={faChevronDown} />
               </SelectIcon>
             </SelectTrigger>
             <RadixSelect.Portal>
               <SelectContent>
                 <SelectScrollUpButton>
-                  {/*<FontAwesomeIcon icon={faChevronUp} />*/}
+                  <FontAwesomeIcon icon={faChevronUp} />
                 </SelectScrollUpButton>
                 <SelectViewport>{children}</SelectViewport>
                 <SelectScrollDownButton>
-                  {/*<FontAwesomeIcon icon={faChevronDown} />*/}
+                  <FontAwesomeIcon icon={faChevronDown} />
                 </SelectScrollDownButton>
               </SelectContent>
             </RadixSelect.Portal>
@@ -80,7 +80,7 @@ const SelectItem = React.forwardRef<
     <StyledItem {...props} ref={forwardedRef}>
       <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
       <StyledItemIndicator>
-        {/*<FontAwesomeIcon icon={faCheck} />*/}
+        <FontAwesomeIcon icon={faCheck} />
       </StyledItemIndicator>
     </StyledItem>
   );
