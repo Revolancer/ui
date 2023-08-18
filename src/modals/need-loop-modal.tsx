@@ -1,4 +1,4 @@
-import Modal from 'react-modal';
+//import Modal from 'react-modal';
 import { useEffect, useState } from 'react';
 import { P, Span } from '../text';
 import { Card, Flex } from '../layout';
