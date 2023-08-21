@@ -46,6 +46,7 @@ export const RevoModal = ({
     >
       <Card css={{ color: '$neutral700', maxWidth: '550px' }}>
         {showCloseIcon && (
+          //i gotta fix the css for this lol
           <Button role="primary" href="#" onClick={() => modalClose()}>
             <FontAwesomeIcon icon={faCircleXmark} />
           </Button>
