@@ -2,11 +2,9 @@ import { FullWidth } from '../layout';
 import { CrumbDivider } from '.';
 import { styled } from '../styles';
 
-const CrumbBarContainer = styled('div', {
-  display: 'flex',
-  gap: '$4',
-  padding: '$6',
-  paddingBottom: '0',
+const CrumbBarContainer = styled('p', {
+  margin: '$6',
+  marginBottom: '0',
 });
 
 export const CrumbBar = ({ children }: { children?: any }) => {
