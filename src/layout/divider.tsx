@@ -1,4 +1,6 @@
 import { styled } from '../styles';
+import { Flex } from '.';
+import { P } from '../text';
 
 export const Divider = styled('hr', {
   borderWidth: '0',
@@ -23,3 +25,20 @@ export const Divider = styled('hr', {
     color: 'gray',
   },
 });
+
+export const LabelledDivider = ({ label }: { label: string }) => {
+  return (
+    <Flex css={{ alignItems: 'center' }}>
+      <Divider />
+      <P
+        css={{
+          fontWeight: '$bold',
+          color: '$neutral600',
+        }}
+      >
+        {label}
+      </P>
+      <Divider />
+    </Flex>
+  );
+};
