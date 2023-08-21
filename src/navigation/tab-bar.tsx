@@ -1,6 +1,29 @@
 import { Flex } from '../layout';
-import { TabLink } from '.';
 import { useRouter } from 'next/router';
+import { styled } from '../styles';
+import Link from 'next/link';
+
+const TabLink = styled(Link, {
+  fontSize: '$body2',
+  color: '$neutral600',
+  textDecoration: 'none',
+  display: 'block',
+  paddingInline: '$5',
+  paddingBlock: '$3',
+
+  variants: {
+    active: {
+      true: {
+        color: '$black',
+        fontWeight: '$medium',
+        borderStyle: 'none',
+        borderWidth: '$2',
+        borderColor: '$black',
+        borderBlockEndStyle: 'solid',
+      },
+    },
+  },
+});
 
 export const Tabs = ({
   root,
