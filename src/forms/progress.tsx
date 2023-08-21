@@ -1,4 +1,4 @@
-import { styled, darkTheme } from '../styles'
+import { styled, darkTheme } from '../styles';
 
 const Outer = styled('div', {
   position: 'relative',

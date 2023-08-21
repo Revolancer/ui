@@ -1,4 +1,4 @@
-import { styled, darkTheme } from "../styles";
+import { styled, darkTheme } from '../styles';
 
 const InputOuter = styled('div', {
   backgroundColor: '$background',
@@ -72,8 +72,4 @@ const TextAreaInner = styled('textarea', {
   },
 });
 
-export {
-  InputOuter,
-  InputInner,
-  TextAreaInner
-}
+export { InputOuter, InputInner, TextAreaInner };

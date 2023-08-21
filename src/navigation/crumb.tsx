@@ -1,5 +1,5 @@
-import { styled } from "../styles";
-import Link from "next/link";
+import { styled } from '../styles';
+import Link from 'next/link';
 
 export const Crumb = styled(Link, {
   color: '$neutral600',

@@ -233,10 +233,4 @@ const SelectItem = React.forwardRef<
 });
 SelectItem.displayName = 'SelectItem';
 
-export {
-  SelectItem,
-  SelectGroup,
-  SelectSeparator,
-  SelectLabel,
-  Select,
-};
+export { SelectItem, SelectGroup, SelectSeparator, SelectLabel, Select };

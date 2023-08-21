@@ -1,4 +1,4 @@
-import { styled } from "../styles";
+import { styled } from '../styles';
 
 const FullWidth = styled('div', {
   gridColumn: 'auto / span 4',
@@ -120,5 +120,5 @@ export {
   SideBar,
   MainContentWithSideBar,
   ColumnLayout,
-  TwoCols
-}
+  TwoCols,
+};

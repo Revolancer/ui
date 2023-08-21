@@ -1,1 +1,1 @@
-export * from './rounded-square-image'
+export * from './rounded-square-image';
