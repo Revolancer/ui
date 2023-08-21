@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import { Card, Flex } from '../layout';
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { Button } from '../buttons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
@@ -29,7 +29,7 @@ export const RevoModal = ({
   handleClose: () => void;
   showCloseIcon: boolean;
   renderCTA?: () => void;
-  renderChildren: any;
+  renderChildren: ({ close }: { close: any }) => ReactNode;
 }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const modalOpen = () => {
@@ -43,7 +43,11 @@ export const RevoModal = ({
   }, []);
   Modal.setAppElement('#__next');
   return (
-    <Modal isOpen={modalIsOpen} style={customStyles}>
+    <Modal
+      isOpen={modalIsOpen}
+      onRequestClose={modalClose}
+      style={customStyles}
+    >
       <Card css={{ color: '$neutral700', maxWidth: '550px' }}>
         {showCloseIcon && (
           <Button role="primary" href="#" onClick={() => modalClose()}>
