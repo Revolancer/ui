@@ -1,10 +1,10 @@
-//import Modal from 'react-modal';
+import Modal from 'react-modal';
 import { useEffect, useState } from 'react';
 import { P } from '../text';
 import { Card, Flex } from '../layout';
 import { Button, TertiaryButton, UnstyledLink } from '../buttons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 const customStyles: Modal.Styles = {
   content: {

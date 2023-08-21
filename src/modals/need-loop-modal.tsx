@@ -1,10 +1,10 @@
-//import Modal from 'react-modal';
+import Modal from 'react-modal';
 import { useEffect, useState } from 'react';
 import { P, Span } from '../text';
 import { Card, Flex } from '../layout';
 import { Button, TertiaryButton, UnstyledLink } from '../buttons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCircleCheck, faClose } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck, faClose } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
 
 const customStyles: Modal.Styles = {

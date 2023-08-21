@@ -1,5 +1,5 @@
 import { config as styleconfig } from '../styles';
-//import Modal from 'react-modal';
+import Modal from 'react-modal';
 import { useEffect, useState } from 'react';
 import { P } from '../text';
 
