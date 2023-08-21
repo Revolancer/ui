@@ -41,7 +41,7 @@ export const RevoModal = ({
   return (
     <Modal
       isOpen={modalIsOpen}
-      onRequestClose={modalClose}
+      onRequestClose={() => modalClose()}
       style={customStyles}
     >
       <Card css={{ color: '$neutral700', maxWidth: '550px' }}>
