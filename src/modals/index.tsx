@@ -21,14 +21,10 @@ const customStyles: Modal.Styles = {
 };
 
 export const RevoModal = ({
-  handleClose,
   showCloseIcon = false,
-  renderCTA,
   renderChildren,
 }: {
-  handleClose: () => void;
   showCloseIcon: boolean;
-  renderCTA?: () => void;
   renderChildren: ({ close }: { close: any }) => ReactNode;
 }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
