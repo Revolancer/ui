@@ -16,22 +16,16 @@ export const Tabs = ({
   const router = useRouter();
   return (
     <Flex wrap gap={0}>
-      <TabLink
-        active={router.pathname == `/${root}`}
-        href={`/${root}`}
-      >
+      <TabLink active={router.pathname == `/${root}`} href={`/${root}`}>
         {rootName}
       </TabLink>
       {routes.map((route, index) => {
-        const pathName = `/${root}/${route}`
+        const pathName = `/${root}/${route}`;
         return (
-          <TabLink
-            active={router.pathname == pathName}
-            href={pathName}
-          >
+          <TabLink active={router.pathname == pathName} href={pathName}>
             {routeNames[index]}
           </TabLink>
-        )
+        );
       })}
     </Flex>
   );

@@ -1,5 +1,5 @@
-import { ProfileImage } from ".";
-import { styled } from "../styles";
+import { ProfileImage } from '.';
+import { styled } from '../styles';
 
 export const RoundedSquareImage = ({
   url = '',

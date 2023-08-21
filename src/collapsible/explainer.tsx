@@ -5,7 +5,13 @@ import { UnstyledLink } from '../buttons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
-export const Explainer = ({ text, children }: {text: string, children: any}) => {
+export const Explainer = ({
+  text,
+  children,
+}: {
+  text: string;
+  children: any;
+}) => {
   const [expanded, setExpanded] = useState(false);
 
   const toggle = useCallback(() => {

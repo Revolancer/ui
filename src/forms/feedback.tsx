@@ -1,10 +1,10 @@
 import {
-faCircleCheck,
-faCircleInfo,
+  faCircleCheck,
+  faCircleInfo,
   faTriangleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FeedbackText, FeedbackTextAfter } from ".";
+import { FeedbackText, FeedbackTextAfter } from '.';
 
 export const Feedback = ({
   state = 'warning',

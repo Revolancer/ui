@@ -1,4 +1,4 @@
-import { NagBarContainer, ColumnLayout, FullWidth } from ".";
+import { NagBarContainer, ColumnLayout, FullWidth } from '.';
 
 export const NagBar = ({ children }: { children?: any }) => {
   return (

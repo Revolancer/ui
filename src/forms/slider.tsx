@@ -1,5 +1,5 @@
-import { Field, FieldProps } from "formik";
-import { SliderRoot, SliderTrack, SliderRange, SliderThumb } from ".";
+import { Field, FieldProps } from 'formik';
+import { SliderRoot, SliderTrack, SliderRange, SliderThumb } from '.';
 
 export const Slider = ({
   step = 1,

@@ -1,4 +1,4 @@
-import { BG, Inner, Outer } from ".";
+import { BG, Inner, Outer } from '.';
 
 export const Progress = ({ progress = 0 }: { progress?: number }) => {
   progress = Math.min(progress, 100);

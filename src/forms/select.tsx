@@ -22,7 +22,7 @@ import {
   SelectLabel,
   SelectSeparator,
   StyledItem,
-  StyledItemIndicator
+  StyledItemIndicator,
 } from '.';
 
 const Select = ({
