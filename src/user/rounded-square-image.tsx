@@ -1,5 +1,5 @@
-import { ProfileImage } from '.';
 import { styled } from '../styles';
+import Image from 'next/image';
 
 export const RoundedSquareImage = ({
   url = '',
@@ -47,6 +47,10 @@ export const RoundedSquareImage = ({
         },
       },
     },
+  });
+
+  const ProfileImage = styled(Image, {
+    objectFit: 'cover',
   });
 
   return (
