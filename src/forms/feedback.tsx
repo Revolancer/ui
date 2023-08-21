@@ -4,7 +4,42 @@ import {
   faTriangleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FeedbackText, FeedbackTextAfter } from '.';
+import { styled } from '../styles';
+
+const FeedbackText = styled('span', {
+  fontSize: '$body2',
+  paddingInlineStart: '$1',
+  display: 'inline-flex',
+  gap: '$4',
+  alignItems: 'center',
+
+  variants: {
+    state: {
+      feedback: {
+        color: '$navy500',
+      },
+      warning: {
+        color: '$orange500',
+      },
+      error: {
+        color: '$red500',
+      },
+      success: {
+        color: '$green500',
+      },
+    },
+  },
+
+  defaultVariants: {
+    state: 'feedback',
+  },
+});
+
+const FeedbackTextAfter = styled('span', {
+  display: 'inline-flex',
+  flexWrap: 'wrap',
+  gap: '$2',
+});
 
 export const Feedback = ({
   state = 'warning',

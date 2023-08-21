@@ -1,6 +1,34 @@
 import { useMemo } from 'react';
-import { config } from '../styles';
-import { TrafficBG, TrafficInner, TrafficOuter } from '.';
+import { styled, config, darkTheme } from '../styles';
+
+const TrafficOuter = styled('div', {
+  position: 'relative',
+  width: '100%',
+  height: '$5',
+  borderRadius: '$3',
+  overflow: 'hidden',
+});
+
+const TrafficBG = styled('div', {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  backgroundColor: '$neutral300',
+
+  [`.${darkTheme} &`]: {
+    backgroundColor: '$neutral700',
+  },
+});
+
+const TrafficInner = styled('div', {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  height: '100%',
+  borderRadius: '$3',
+});
 
 export const ProgressTraffic = ({ progress = 0 }: { progress?: number }) => {
   progress = Math.min(progress, 100);
