@@ -2,7 +2,7 @@ import { Flex } from '../layout';
 import { TabLink } from '.';
 import { useRouter } from 'next/router';
 
-export const ProjectTabs = ({
+export const Tabs = ({
   root,
   rootName,
   routes,
