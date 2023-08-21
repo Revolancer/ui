@@ -1,7 +1,9 @@
 import Modal from 'react-modal';
-import { Button } from '../buttons';
 import { Card, Flex } from '../layout';
-import { ReactNode } from 'react';
+import { useEffect, useState } from 'react';
+import { Button } from '../buttons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 const customStyles: Modal.Styles = {
   content: {
@@ -19,32 +21,39 @@ const customStyles: Modal.Styles = {
 };
 
 export const RevoModal = ({
-  modalIsOpen,
   handleClose,
+  showCloseIcon = false,
   renderCTA,
-  renderClose = () => {},
-  children,
+  renderChildren,
 }: {
-  modalIsOpen: boolean;
   handleClose: () => void;
+  showCloseIcon: boolean;
   renderCTA?: () => void;
-  renderClose: () => void;
-  children?: ReactNode;
+  renderChildren: any;
 }) => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const modalOpen = () => {
+    setIsOpen(true);
+  };
+  const modalClose = () => {
+    setIsOpen(false);
+  };
+  useEffect(() => {
+    modalOpen();
+  }, []);
   Modal.setAppElement('#__next');
   return (
-    <>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={handleClose}
-        style={customStyles}
-      >
-        <Card css={{ color: '$neutral700', maxWidth: '550px' }}>
-          <Flex css={{ alignItems: 'center', justifyContent: 'space-between' }}>
-            {children}
-          </Flex>
-        </Card>
-      </Modal>
-    </>
+    <Modal isOpen={modalIsOpen} style={customStyles}>
+      <Card css={{ color: '$neutral700', maxWidth: '550px' }}>
+        {showCloseIcon && (
+          <Button role="primary" href="#" onClick={() => modalClose()}>
+            <FontAwesomeIcon icon={faCircleXmark} />
+          </Button>
+        )}
+        <Flex css={{ alignItems: 'center', justifyContent: 'space-between' }}>
+          {renderChildren({ close: modalClose })}
+        </Flex>
+      </Card>
+    </Modal>
   );
 };
