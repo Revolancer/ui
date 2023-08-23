@@ -73,7 +73,7 @@ export const RevoModal = ({
 
                     '&:hover': {
                       backgroundColor: '$neutral400',
-                      color: '$white'
+                      color: '$white',
                     },
                   }}
                 >
