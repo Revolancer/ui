@@ -45,6 +45,36 @@ export const RevoModal = ({
 
   //Modal.setAppElement('#__next');
 
+  const renderCloseIcon = (
+    <Flex
+      css={{
+        position: 'absolute',
+        top: '1px',
+        right: '1px',
+      }}
+    >
+      <Button
+        href="#"
+        onClick={() => modalClose()}
+        size="small"
+        css={{
+          backgroundColor: '$background',
+          borderWidth: '0px',
+          color: '$neutral400',
+          boxShadow: '0px',
+          borderRadius: '$3',
+
+          '&:hover': {
+            backgroundColor: '$neutral400',
+            color: '$white',
+          },
+        }}
+      >
+        <FontAwesomeIcon icon={faCircleXmark} />
+      </Button>
+    </Flex>
+  );
+
   return (
     <>
       {showModalOpenCTA && (
@@ -57,36 +87,26 @@ export const RevoModal = ({
         onRequestClose={() => modalClose()}
         style={customStyles}
       >
-        <Card css={{ color: '$neutral700', maxWidth: '550px' }}>
-          <Flex column>
-            {showCloseIcon && (
-              <Flex css={{ justifyContent: 'flex-end', float: 'right' }}>
-                <Button
-                  href="#"
-                  onClick={() => modalClose()}
-                  size="small"
-                  css={{
-                    backgroundColor: '$white',
-                    borderWidth: '0px',
-                    color: '$neutral400',
-                    boxShadow: '0px',
+        <Card
+          css={{
+            color: '$neutral700',
+            maxWidth: '550px',
+            minHeight: '33vh',
+            alignItems: 'center',
+            justifyContent: 'center',
 
-                    '&:hover': {
-                      backgroundColor: '$neutral400',
-                      color: '$white',
-                    },
-                  }}
-                >
-                  <FontAwesomeIcon icon={faCircleXmark} />
-                </Button>
-              </Flex>
-            )}
-            <Flex
-              column
-              css={{ alignItems: 'center', justifyContent: 'center' }}
-            >
-              {renderChildren({ close: modalClose })}
-            </Flex>
+            '@sm': {
+              maxWidth: '300px',
+            },
+          }}
+        >
+          {showCloseIcon && renderCloseIcon}
+          <Flex
+            column
+            wrap
+            css={{ alignItems: 'center', justifyContent: 'center' }}
+          >
+            {renderChildren({ close: modalClose })}
           </Flex>
         </Card>
       </Modal>
