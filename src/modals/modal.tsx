@@ -21,10 +21,14 @@ const customStyles: Modal.Styles = {
 };
 
 export const RevoModal = ({
+  showModalOpenCTA = false,
+  modalCTALabel = 'Show Modal',
   showCloseIcon = false,
   renderChildren,
 }: {
-  showCloseIcon: boolean;
+  showModalOpenCTA?: boolean;
+  modalCTALabel?: string;
+  showCloseIcon?: boolean;
   renderChildren: ({ close }: { close: any }) => ReactNode;
 }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -34,27 +38,37 @@ export const RevoModal = ({
   const modalClose = () => {
     setIsOpen(false);
   };
+
   useEffect(() => {
-    modalOpen();
-  }, []);
+    if (!showModalOpenCTA) modalOpen();
+  }, [showModalOpenCTA]);
+
   Modal.setAppElement('#__next');
+  
   return (
-    <Modal
-      isOpen={modalIsOpen}
-      onRequestClose={() => modalClose()}
-      style={customStyles}
-    >
-      <Card css={{ color: '$neutral700', maxWidth: '550px' }}>
-        {showCloseIcon && (
-          //i gotta fix the css for this lol
-          <Button role="primary" href="#" onClick={() => modalClose()}>
-            <FontAwesomeIcon icon={faCircleXmark} />
-          </Button>
-        )}
-        <Flex css={{ alignItems: 'center', justifyContent: 'space-between' }}>
-          {renderChildren({ close: modalClose })}
-        </Flex>
-      </Card>
-    </Modal>
+    <>
+      {showModalOpenCTA && (
+        <Button role="primary" href="#" onClick={() => modalOpen()}>
+          {modalCTALabel}
+        </Button>
+      )}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => modalClose()}
+        style={customStyles}
+      >
+        <Card css={{ color: '$neutral700', maxWidth: '550px' }}>
+          {showCloseIcon && (
+            //i gotta fix the css for this lol
+            <Button role="primary" href="#" onClick={() => modalClose()}>
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </Button>
+          )}
+          <Flex css={{ alignItems: 'center', justifyContent: 'space-between' }}>
+            {renderChildren({ close: modalClose })}
+          </Flex>
+        </Card>
+      </Modal>
+    </>
   );
 };
