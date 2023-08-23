@@ -1,4 +1,4 @@
-import { styled, darkTheme } from '../styles';
+import { styled } from '../styles';
 
 export const Card = styled('div', {
   borderWidth: '$1',
