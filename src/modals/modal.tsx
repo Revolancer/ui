@@ -44,7 +44,7 @@ export const RevoModal = ({
   }, [showModalOpenCTA]);
 
   Modal.setAppElement('#__next');
-  
+
   return (
     <>
       {showModalOpenCTA && (
