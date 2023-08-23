@@ -26,7 +26,20 @@
     "storybook:build": "storybook build",
     "storybook:deploy": "gh-pages -d storybook-static"
   },
-  "author": "Skye Brady <skye@revolancer.com>",
+  "contributors": [
+    {
+      "name": "Skye Brady",
+      "email": "skye@revolancer.com"
+    },
+    {
+      "name": "Ponch Salvador",
+      "email": "ponch@revolancer.com"
+    },
+    {
+      "name": "Pradipta Ghoshal",
+      "email": "pradipta@revolancer.com"
+    },
+  ],
   "license": "UNLICENSED",
   "devDependencies": {
     "@storybook/addon-essentials": "^7.3.2",
