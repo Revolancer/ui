@@ -113,10 +113,11 @@ export const CTAWithHandleSubmit = () => {
   return (
     <>
       <Flex css={{ minHeight: '20vh' }}>
-        <H3>BWOAH Submit {!submitHandled && 'UN'}Handled</H3>
+        <H3>Submit Status: {submitHandled ? 'Handled' : ''}</H3>
       </Flex>
       <Modal
         showModalOpenCTA
+        modalCTALabel={submitHandled ? 'un-handle submit' : 'handle submit'}
         renderChildren={({ close }) => {
           // your return statement can be whatever JSX you plan on using, just make sure CTAs include calling the handleSubmit function defined earlier
           return (
@@ -124,14 +125,20 @@ export const CTAWithHandleSubmit = () => {
               <Flex>
                 <P>THE MODAL IS OPEN</P>
               </Flex>
-              <Flex>
+              <Flex
+                wrap
+                css={{
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
                 <Button
                   role="primary"
                   href="#"
                   size="small"
                   onClick={() => handleSubmit(close)}
                 >
-                  Close Modal with Submit
+                  Close and Submit
                 </Button>
                 <Button
                   role="secondary"
@@ -139,7 +146,7 @@ export const CTAWithHandleSubmit = () => {
                   size="small"
                   onClick={() => close()}
                 >
-                  Close Modal WITHOUT Submit
+                  Close
                 </Button>
               </Flex>
             </>
