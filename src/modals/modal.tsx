@@ -29,7 +29,7 @@ export const RevoModal = ({
   showModalOpenCTA?: boolean;
   modalCTALabel?: string;
   showCloseIcon?: boolean;
-  renderChildren: ({ close }: { close: any }) => ReactNode;
+  renderChildren: ({ close }: { close: () => void }) => ReactNode;
 }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const modalOpen = () => {
@@ -43,7 +43,7 @@ export const RevoModal = ({
     if (!showModalOpenCTA) modalOpen();
   }, [showModalOpenCTA]);
 
-  Modal.setAppElement('#__next');
+  //Modal.setAppElement('#__next');
 
   return (
     <>
@@ -58,14 +58,35 @@ export const RevoModal = ({
         style={customStyles}
       >
         <Card css={{ color: '$neutral700', maxWidth: '550px' }}>
-          {showCloseIcon && (
-            //i gotta fix the css for this lol
-            <Button role="primary" href="#" onClick={() => modalClose()}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </Button>
-          )}
-          <Flex css={{ alignItems: 'center', justifyContent: 'space-between' }}>
-            {renderChildren({ close: modalClose })}
+          <Flex column>
+            {showCloseIcon && (
+              <Flex css={{ justifyContent: 'flex-end', float: 'right' }}>
+                <Button
+                  href="#"
+                  onClick={() => modalClose()}
+                  size="small"
+                  css={{
+                    backgroundColor: '$white',
+                    borderWidth: '0px',
+                    color: '$neutral400',
+                    boxShadow: '0px',
+
+                    '&:hover': {
+                      backgroundColor: '$neutral400',
+                      color: '$white'
+                    },
+                  }}
+                >
+                  <FontAwesomeIcon icon={faCircleXmark} />
+                </Button>
+              </Flex>
+            )}
+            <Flex
+              column
+              css={{ alignItems: 'center', justifyContent: 'center' }}
+            >
+              {renderChildren({ close: modalClose })}
+            </Flex>
           </Flex>
         </Card>
       </Modal>
