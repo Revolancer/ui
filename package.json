@@ -1,6 +1,6 @@
 {
   "name": "@revolancer/ui",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "description": "Revolancer UI Library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,12 +8,43 @@
   "exports": {
     ".": "./dist/index.js",
     "./buttons": "./dist/buttons/index.js",
-    "./cards": "./dist/cards/index.js"
+    "./collapsible": "./dist/collapsible/index.js",
+    "./forms": "./dist/forms/index.js",
+    "./layout": "./dist/layout/index.js",
+    "./modals": "./dist/modals/index.js",
+    "./navigation": "./dist/navigation/index.js",
+    "./project-hubs": "./dist/project-hubs/index.js",
+    "./text": "./dist/text/index.js",
+    "./user": "./dist/user/index.js"
   },
   "typesVersions": {
     "*": {
       "buttons": [
         "dist/buttons/index.d.ts"
+      ],
+      "collapsible": [
+        "dist/collapsible/index.d.ts"
+      ],
+      "forms": [
+        "dist/forms/index.d.ts"
+      ],
+      "layout": [
+        "dist/layout/index.d.ts"
+      ],
+      "modals": [
+        "dist/modals/index.d.ts"
+      ],
+      "navigation": [
+        "dist/navigation/index.d.ts"
+      ],
+      "project-hubs": [
+        "dist/project-hubs/index.d.ts"
+      ],
+      "text": [
+        "dist/text/index.d.ts"
+      ],
+      "user": [
+        "dist/user/index.d.ts"
       ]
     }
   },
