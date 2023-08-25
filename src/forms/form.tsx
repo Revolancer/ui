@@ -1,5 +1,5 @@
 import { styled } from '../styles';
-import { Formik as FormikForm } from 'formik';
+import { Form as FormikForm } from 'formik';
 
 export const Form = styled(FormikForm, {
   display: 'flex',
