@@ -53,7 +53,7 @@ export const RevoModal = ({
     if (openOnTrigger) modalOpen();
   }, [openOnTrigger]);
 
-  //Modal.setAppElement('#__next');
+  Modal.setAppElement('#__next');
 
   const renderCloseIcon = (
     <Flex
