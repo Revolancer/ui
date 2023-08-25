@@ -1,6 +1,8 @@
 import { styled } from '../styles';
 
-export const Flex = styled('div', {
+const Div = styled('div', {});
+
+const Flex = styled('div', {
   display: 'flex',
   gap: '$$gap',
   variants: {
@@ -72,3 +74,5 @@ export const Flex = styled('div', {
     gap: 3,
   },
 });
+
+export { Div, Flex };
