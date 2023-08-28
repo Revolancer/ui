@@ -60,7 +60,7 @@ export const ConfirmationDialog = ({
   const closeModal = () => {
     setIsOpen(false);
   };
-  Modal.setAppElement('#__next');
+  //Modal.setAppElement('#__next');
   return (
     <>
       <Button
