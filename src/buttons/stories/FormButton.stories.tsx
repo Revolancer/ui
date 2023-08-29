@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { FormButton } from "..";
+import type { Meta, StoryObj } from '@storybook/react';
+import { FormButton } from '..';
 
 const meta = {
   title: 'Buttons/FormButton',

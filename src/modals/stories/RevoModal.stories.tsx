@@ -219,44 +219,45 @@ export const OpenOnTrigger: Story = {
     ...Default.args,
   },
   render: (args) => {
-  const [count, setCount] = useState(0);
-  const maxCount = 5;
+    const [count, setCount] = useState(0);
+    const maxCount = 5;
 
-  const handleClose = (close: () => void) => {
-    setCount(count - 1);
-    close();
-  };
+    const handleClose = (close: () => void) => {
+      setCount(count - 1);
+      close();
+    };
 
-  return (
-    <Flex column>
-      <H3>COUNT: {count}</H3>
-      <Button
-        role="primary"
-        href="#"
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        ADD
-      </Button>
-      <Modal
-        {...args}
-        openOnTrigger={count > maxCount}
-        renderChildren={({ close }) => {
-          return (
-            <>
-              <P>Count exceeded!</P>
-              <Button
-                role="primary"
-                href="#"
-                onClick={() => handleClose(close)}
-              >
-                Fix Count
-              </Button>
-            </>
-          );
-        }}
-      />
-    </Flex>
-  );
-}};
+    return (
+      <Flex column>
+        <H3>COUNT: {count}</H3>
+        <Button
+          role="primary"
+          href="#"
+          onClick={() => {
+            setCount(count + 1);
+          }}
+        >
+          ADD
+        </Button>
+        <Modal
+          {...args}
+          openOnTrigger={count > maxCount}
+          renderChildren={({ close }) => {
+            return (
+              <>
+                <P>Count exceeded!</P>
+                <Button
+                  role="primary"
+                  href="#"
+                  onClick={() => handleClose(close)}
+                >
+                  Fix Count
+                </Button>
+              </>
+            );
+          }}
+        />
+      </Flex>
+    );
+  },
+};
