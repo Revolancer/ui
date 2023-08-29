@@ -47,13 +47,28 @@ export const Default: Story = {
         </H3>
         <Divider />
         <P>
-          This is a card. The Card component can have two
-          props passed: <strong>flat</strong> and <strong>unpadded</strong>.
-          Setting either on changes the appearance of the card. But passing a{' '}
-          <em>CSS Object</em> prop can also allow you to change the card's CSS
-          attributes.
+          This is a card. The Card component can have two props passed:{' '}
+          <strong>flat</strong> and <strong>unpadded</strong>. Setting either on
+          changes the appearance of the card. But passing a <em>CSS Object</em>{' '}
+          prop can also allow you to change the card's CSS attributes.
         </P>
       </Card>
     );
   },
+};
+
+export const Flat: Story = {
+  args: {
+    ...Default.args,
+    flat: true,
+  },
+  render: Default.render,
+};
+
+export const Unpadded: Story = {
+  args: {
+    ...Default.args,
+    unpadded: true,
+  },
+  render: Default.render,
 };

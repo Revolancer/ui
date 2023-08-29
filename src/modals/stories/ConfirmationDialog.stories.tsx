@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { ConfirmationDialog } from "..";
-import { Flex } from "../../layout";
-import { H3 } from "../../text";
+import { Meta, StoryObj } from '@storybook/react';
+import { ConfirmationDialog } from '..';
+import { Flex } from '../../layout';
+import { H3 } from '../../text';
 
 const meta = {
   title: 'Modals/ConfirmationDialog',
