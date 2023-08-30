@@ -26,10 +26,16 @@ export const Divider = styled('hr', {
   },
 });
 
-export const LabelledDivider = ({ label }: { label: string }) => {
+export const LabelledDivider = ({
+  label,
+  color,
+}: {
+  label: string;
+  color?: 'white' | 'gray';
+}) => {
   return (
     <Flex css={{ alignItems: 'center' }}>
-      <Divider />
+      <Divider color={color} />
       <P
         css={{
           fontWeight: '$bold',
@@ -38,7 +44,7 @@ export const LabelledDivider = ({ label }: { label: string }) => {
       >
         {label}
       </P>
-      <Divider />
+      <Divider color={color} />
     </Flex>
   );
 };
