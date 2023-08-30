@@ -13,6 +13,13 @@ const meta = {
       },
     },
   },
+  render: ({ undecorated, ...args }) => (
+    <Card>
+      <ColumnLayout {...args}>
+        <H3>{undecorated && 'Undecorated '}Column Layout</H3>
+      </ColumnLayout>
+    </Card>
+  ),
 } satisfies Meta<typeof ColumnLayout>;
 
 export default meta;
@@ -22,19 +29,10 @@ export const DefaultColumnLayout: Story = {
   args: {
     undecorated: false,
   },
-  render: (args) => (
-    <Card>
-      <ColumnLayout {...args}>
-        <H3>Column Layout</H3>
-      </ColumnLayout>
-    </Card>
-  ),
 };
 
 export const UndecoratedColumnLayout: Story = {
   args: {
-    ...DefaultColumnLayout.args,
     undecorated: true,
   },
-  render: DefaultColumnLayout.render,
 };

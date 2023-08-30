@@ -28,16 +28,6 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Card>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
-  args: {
-    flat: false,
-    unpadded: false,
-  },
   render: (args) => {
     return (
       <Card {...args}>
@@ -55,6 +45,16 @@ export const Default: Story = {
       </Card>
     );
   },
+} satisfies Meta<typeof Card>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    flat: false,
+    unpadded: false,
+  },
 };
 
 export const Flat: Story = {
@@ -62,7 +62,6 @@ export const Flat: Story = {
     ...Default.args,
     flat: true,
   },
-  render: Default.render,
 };
 
 export const Unpadded: Story = {
@@ -70,5 +69,4 @@ export const Unpadded: Story = {
     ...Default.args,
     unpadded: true,
   },
-  render: Default.render,
 };

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Card, StyledBlocksContainer } from '..';
+import { StyledBlocksContainer } from '..';
 import { H5, P } from '../../text';
 
 const meta = {
@@ -9,14 +9,13 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {},
 } satisfies Meta<typeof StyledBlocksContainer>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: (args) => {
+  render: () => {
     return (
       <StyledBlocksContainer>
         <H5>This is a Styled Block Container</H5>

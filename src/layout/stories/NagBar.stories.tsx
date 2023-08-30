@@ -9,14 +9,13 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {},
 } satisfies Meta<typeof NagBar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: (args) => {
+  render: () => {
     return (
       <NagBar>
         <H5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</H5>
