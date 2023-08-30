@@ -53,7 +53,7 @@ export const Header1Text: Story = {
     texts: ['H1'],
     content: 'This text uses H1 text element',
   },
-  render: ({content, ...args}) => <H1>{content}</H1>,
+  render: ({ content, ...args }) => <H1>{content}</H1>,
 };
 
 /** The H2 Element is the second largest sized text element and is used as a subtitle under the H1 element*/
@@ -62,7 +62,7 @@ export const Header2Text: Story = {
     texts: ['H2'],
     content: 'This text uses H2 text element',
   },
-  render: ({content, ...args}) => <H2>{content}</H2>,
+  render: ({ content, ...args }) => <H2>{content}</H2>,
 };
 
 /** The H3 Element is the third largest sized text element and is used as a header for a page other than the main page */
