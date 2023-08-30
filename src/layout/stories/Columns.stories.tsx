@@ -122,35 +122,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/** This is the column layout at full width. See Docs for FullWidth component for more info. */
+/** This document allows you to see the implementation and appearance of different layout components available in the Revolancer UI library. for more information about each component, please refer to their respective storybook docs. */
 export const Columns: Story = {
   args: {
     layout: 'Full Width',
     placeholder: false,
     undecorated: false,
-  },
-};
-
-/** This is the column layout at half width. See Docs for HalfWidth component for more info. */
-export const HalfWidthColumns: Story = {
-  args: {
-    ...Columns.args,
-    layout: 'Half Width',
-  },
-};
-
-/** This column layout uses the MainContentWithSideBar and SideBar components in tandem. See Docs for MainContentWithSideBar and SideBar components for more info. */
-export const SideBarsColumns: Story = {
-  args: {
-    ...Columns.args,
-    layout: 'Side Bars',
-  },
-};
-
-/** This layout uses a two column layout. See Docs for TwoCols component for more info. */
-export const TwoColumns: Story = {
-  args: {
-    ...Columns.args,
-    layout: 'Two Column',
   },
 };
