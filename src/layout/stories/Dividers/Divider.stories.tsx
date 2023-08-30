@@ -25,3 +25,9 @@ export const DividerStory: Story = {
     color: 'gray',
   },
 };
+
+export const WhiteDividerStory: Story = {
+  args: {
+    color: 'white',
+  },
+};

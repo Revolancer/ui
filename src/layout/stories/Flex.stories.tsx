@@ -37,6 +37,28 @@ const meta = {
         defaultValue: { summary: 3 },
       },
     },
+    children: {
+      control: {
+        type: 'number',
+        min: 1,
+        defaultValue: 5,
+      },
+    },
+  },
+  render: ({ children, ...args }) => {
+    return (
+      <Card css={{ width: '20vw' }}>
+        <Flex {...args}>
+          {[...Array(children).keys()].map((item) => {
+            return (
+              <Flex {...args}>
+                <H1>{item + 1}</H1>
+              </Flex>
+            );
+          })}
+        </Flex>
+      </Card>
+    );
   },
 } satisfies Meta<typeof Flex>;
 
@@ -50,42 +72,12 @@ export const Default: Story = {
     gap: 3,
     children: 5,
   },
-  render: (args) => {
-    return (
-      <Card css={{ width: '20vw' }}>
-        <Flex {...args}>
-          {[...Array(5).keys()].map((item) => {
-            return (
-              <Flex {...args}>
-                <H1>{item + 1}</H1>
-              </Flex>
-            );
-          })}
-        </Flex>
-      </Card>
-    );
-  },
 };
 
 export const Column: Story = {
   args: {
     ...Default.args,
     column: true,
-  },
-  render: (args) => {
-    return (
-      <Card css={{ width: '20vw' }}>
-        <Flex {...args}>
-          {[...Array(5).keys()].map((item) => {
-            return (
-              <Flex {...args}>
-                <H1>{item + 1}</H1>
-              </Flex>
-            );
-          })}
-        </Flex>
-      </Card>
-    );
   },
 };
 
@@ -94,20 +86,5 @@ export const Wrap: Story = {
     ...Default.args,
     wrap: true,
     gap: 10,
-  },
-  render: (args) => {
-    return (
-      <Card css={{ width: '20vw' }}>
-        <Flex {...args}>
-          {[...Array(5).keys()].map((item) => {
-            return (
-              <Flex {...args}>
-                <H1>{item + 1}</H1>
-              </Flex>
-            );
-          })}
-        </Flex>
-      </Card>
-    );
   },
 };
