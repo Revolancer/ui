@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Card, Flex, MainContentWithSideBar, Divider } from '../..';
+import { Card, MainContentWithSideBar, Divider, ColumnLayout } from '../..';
 import { H3, P } from '../../../text';
 
 const meta = {
@@ -11,20 +11,23 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const DefaultMainContentWithSideBar: Story = {
-  render: (args) => (
-    <Flex>
-      <MainContentWithSideBar {...args}>
+  render: () => (
+    <ColumnLayout>
+      <MainContentWithSideBar>
         <Card>
           <H3>Main Content with Side Bar</H3>
           <Divider />
           <P>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a
-            augue a erat ornare efficitur. Nulla ultricies et risus sed aliquet.
-            Sed aliquet bibendum leo, ut congue nulla fringilla id. Phasellus
-            hendrerit felis quis lectus mattis, ac viverra sapien iaculis.
+            The MainContentWithSideBar component is used in tandem with the
+            SideBar component to create a column layout where the two components
+            are split in a 2:1 ratio, meaning the Main Content div is twice as
+            wide as the SideBar div.
+            <br />
+            <br /> Make sure the MainContentWithSideBar component is wrapped in
+            a ColumnLayout component for this to work.
           </P>
         </Card>
       </MainContentWithSideBar>
-    </Flex>
+    </ColumnLayout>
   ),
 };

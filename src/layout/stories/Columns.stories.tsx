@@ -16,7 +16,7 @@ const Template = ({
   layout,
   children,
   placeholder,
-  undecorated
+  undecorated,
 }: {
   layout: string;
   children: any;
@@ -122,7 +122,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/** This is the column layout at full width */
+/** This is the column layout at full width. See Docs for FullWidth component for more info. */
 export const Columns: Story = {
   args: {
     layout: 'Full Width',
@@ -131,7 +131,7 @@ export const Columns: Story = {
   },
 };
 
-/** This is the column layout at half width */
+/** This is the column layout at half width. See Docs for HalfWidth component for more info. */
 export const HalfWidthColumns: Story = {
   args: {
     ...Columns.args,
@@ -139,7 +139,7 @@ export const HalfWidthColumns: Story = {
   },
 };
 
-/** This column layout uses the MainContentWithSideBar and SideBar components in tandem */
+/** This column layout uses the MainContentWithSideBar and SideBar components in tandem. See Docs for MainContentWithSideBar and SideBar components for more info. */
 export const SideBarsColumns: Story = {
   args: {
     ...Columns.args,
@@ -147,7 +147,7 @@ export const SideBarsColumns: Story = {
   },
 };
 
-/** This layout uses a two column layout */
+/** This layout uses a two column layout. See Docs for TwoCols component for more info. */
 export const TwoColumns: Story = {
   args: {
     ...Columns.args,
