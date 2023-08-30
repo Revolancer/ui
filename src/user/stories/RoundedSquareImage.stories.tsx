@@ -25,9 +25,9 @@ const meta = {
       options: ['small', 'medium', 'large', 'xl'],
       control: {
         type: 'radio',
-        defaultValue: 'xl'
-      }
-    }
+        defaultValue: 'xl',
+      },
+    },
   },
 } satisfies Meta<typeof RoundedSquareImage>;
 
