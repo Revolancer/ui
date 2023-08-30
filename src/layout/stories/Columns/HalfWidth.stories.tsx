@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Card, Flex, HalfWidth, Divider } from '../..';
+import { Card, HalfWidth, Divider, ColumnLayout } from '../..';
 import { H3, P } from '../../../text';
 
 const meta = {
@@ -11,9 +11,22 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const DefaultHalfWidth: Story = {
-  render: (args) => (
-    <Flex>
-      <HalfWidth {...args}>
+  render: () => (
+    <ColumnLayout>
+      <HalfWidth>
+        <Card>
+          <H3>Half Width</H3>
+          <Divider />
+          <P>
+            The HalfWidth component allows you to set a div in the page layout
+            that takes up only half the width of the parent div.
+            <br />
+            <br /> Makes sure the HalfWidth component is wrapped in a
+            ColumnLayout component for this to work.
+          </P>
+        </Card>
+      </HalfWidth>
+      <HalfWidth>
         <Card>
           <H3>Half Width</H3>
           <Divider />
@@ -25,18 +38,6 @@ export const DefaultHalfWidth: Story = {
           </P>
         </Card>
       </HalfWidth>
-      <HalfWidth {...args}>
-        <Card>
-          <H3>Half Width</H3>
-          <Divider />
-          <P>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a
-            augue a erat ornare efficitur. Nulla ultricies et risus sed aliquet.
-            Sed aliquet bibendum leo, ut congue nulla fringilla id. Phasellus
-            hendrerit felis quis lectus mattis, ac viverra sapien iaculis.
-          </P>
-        </Card>
-      </HalfWidth>
-    </Flex>
+    </ColumnLayout>
   ),
 };

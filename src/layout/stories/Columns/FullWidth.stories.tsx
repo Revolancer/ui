@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { FullWidth, Card, Divider, Flex } from '../..';
+import { FullWidth, Divider, Flex, ColumnLayout } from '../..';
 import { H3, P } from '../../../text';
 
 const meta = {
@@ -16,31 +16,33 @@ const meta = {
     },
   },
   render: ({ placeholder, ...args }) => (
-    <Flex>
-      <FullWidth {...args}>
-        <Card>
+    <ColumnLayout>
+      <FullWidth placeholder={placeholder} {...args}>
+        <Flex column>
           <H3>{placeholder && 'Placeholder '}Full Width</H3>
           <Divider />
           <P>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a
-            augue a erat ornare efficitur. Nulla ultricies et risus sed aliquet.
-            Sed aliquet bibendum leo, ut congue nulla fringilla id. Phasellus
-            hendrerit felis quis lectus mattis, ac viverra sapien iaculis.
+            The FullWidth component lays out your page in full width of the page
+            layout. Use this for main pages where you want your information in
+            one uniform composition.
           </P>
-        </Card>
+          {placeholder && (
+            <P>
+              Adding the placeholder prop sets your FullWidth component to take
+              up 80% of the viewport height as well as adding card-like css
+              properties
+            </P>
+          )}
+        </Flex>
       </FullWidth>
-    </Flex>
+    </ColumnLayout>
   ),
 } satisfies Meta<typeof FullWidth>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const DefaultFullWidth: Story = {
-  args: {
-    placeholder: false,
-  },
-};
+export const DefaultFullWidth: Story = {};
 
 export const PlaceholderFullWidth: Story = {
   args: {
