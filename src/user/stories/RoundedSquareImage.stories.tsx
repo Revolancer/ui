@@ -12,20 +12,26 @@ const meta = {
     url: {
       control: {
         type: 'text',
-        defaultValue: '',
+      },
+      table: {
+        defaultValue: { summary: '' },
       },
     },
     alt: {
       control: {
         type: 'text',
-        defaultValue: '',
+      },
+      table: {
+        defaultValue: { summary: '' },
       },
     },
     size: {
       options: ['small', 'medium', 'large', 'xl'],
       control: {
         type: 'radio',
-        defaultValue: 'xl',
+      },
+      table: {
+        defaultValue: { summary: 'xl' },
       },
     },
   },

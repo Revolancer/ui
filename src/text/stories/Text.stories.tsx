@@ -29,7 +29,9 @@ const meta = {
     content: {
       control: {
         type: 'text',
-        defaultValue: 'TEXT',
+      },
+      table: {
+        defaultValue: { summary: 'TEXT' },
       },
     },
   },
