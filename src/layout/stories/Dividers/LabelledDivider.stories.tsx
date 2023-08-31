@@ -18,7 +18,9 @@ const meta = {
       options: ['white', 'gray'],
       control: {
         type: 'radio',
-        defaultValue: 'gray',
+      },
+      table: {
+        defaultValue: { summary: 'gray' },
       },
     },
   },

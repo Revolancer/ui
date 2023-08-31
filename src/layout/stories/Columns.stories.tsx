@@ -74,20 +74,26 @@ const meta = {
       options: ['Full Width', 'Half Width', 'Side Bars', 'Two Column'],
       control: {
         type: 'radio',
-        defaultValue: 'Full Width',
+      },
+      table: {
+        defaultValue: { summary: 'Full Width' },
       },
     },
     placeholder: {
       control: {
         type: 'boolean',
-        defaultaValue: false,
+      },
+      table: {
+        defaultValue: { summary: false },
       },
       description: 'For FullWidth component',
     },
     undecorated: {
       control: {
         type: 'boolean',
-        defaultaValue: false,
+      },
+      table: {
+        defaultValue: { summary: false },
       },
       description: 'For ColumnLayout component',
     },

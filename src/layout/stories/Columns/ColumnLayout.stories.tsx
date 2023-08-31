@@ -11,6 +11,9 @@ const meta = {
         type: 'boolean',
         defaultValue: false,
       },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
   },
   render: ({ undecorated, ...args }) => (

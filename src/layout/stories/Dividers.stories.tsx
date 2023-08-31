@@ -51,20 +51,26 @@ const meta = {
       options: ['Divider', 'Labelled Divider'],
       control: {
         type: 'radio',
-        defaultValue: 'Divider',
+      },
+      table: {
+        defaultValue: { summary: 'Divider' },
       },
     },
     color: {
       options: ['white', 'gray'],
       control: {
         type: 'radio',
-        defaultValue: 'gray',
+      },
+      table: {
+        defaultValue: { summary: 'gray' },
       },
     },
     label: {
       control: {
         type: 'text',
-        defaultValue: 'label',
+      },
+      table: {
+        defaultValue: { summary: 'label' },
       },
     },
   },
