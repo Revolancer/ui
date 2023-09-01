@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InputInner, InputOuter, TextAreaInner } from '../..';
-import { Flex } from '../../../layout';
+import { Card, Flex } from '../../../layout';
+import { H5 } from '../../../text';
 
 const meta = {
   title: 'Forms/FormTypes/InputOuter',
@@ -29,8 +30,14 @@ const meta = {
   render: (args) => (
     <InputOuter {...args}>
       <Flex column>
-        <InputInner placeholder="Input Inner Component" />
-        <TextAreaInner placeholder="Text Area Inner Component" />
+        <Card>
+          <H5>Input inner component</H5>
+          <InputInner placeholder="Input Inner Component" />
+        </Card>
+        <Card>
+          <H5>Text area inner component</H5>
+          <TextAreaInner placeholder="Text Area Inner Component" />
+        </Card>
       </Flex>
     </InputOuter>
   ),
