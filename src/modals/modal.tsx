@@ -103,14 +103,8 @@ export const RevoModal = ({
         <Card
           css={{
             color: '$neutral700',
-            maxWidth: '550px',
-            maxHeight: '33vh',
             alignItems: 'center',
             justifyContent: 'center',
-
-            '@sm': {
-              maxWidth: '300px',
-            },
           }}
         >
           {showCloseIcon && renderCloseIcon}
