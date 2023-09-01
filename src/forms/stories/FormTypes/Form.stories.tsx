@@ -14,8 +14,8 @@ const meta = {
     layout: 'centered',
   },
   render: () => {
-    const [data, setData] = useState({ name: '' });
-    const submitHandler = (dataSet: { name: string }, close: () => void) => {
+    const [data, setData] = useState('');
+    const submitHandler = (dataSet: string, close: () => void) => {
       setData(dataSet);
       close();
     };
@@ -23,9 +23,9 @@ const meta = {
       <>
         <Formik
           initialValues={{
-            name: 'name',
+            name: 'Stacy Fakename',
           }}
-          onSubmit={(values) => submitHandler(values, close)}
+          onSubmit={({ name }) => submitHandler(name, close)}
         >
           {(props) => (
             <Form onSubmit={props.handleSubmit}>
@@ -56,7 +56,7 @@ const meta = {
           )}
         </Formik>
         <RevoModal
-          openOnTrigger={'name' in data && data.name !== ''}
+          openOnTrigger={data !== ''}
           renderChildren={({ close }) => {
             return (
               <Card>
@@ -64,11 +64,11 @@ const meta = {
                   <H4>Data Submitted!</H4>
                   <H5>Here's your submission:</H5>
                   <Divider />
-                  <Span>{JSON.stringify(data)}</Span>
+                  <Span>name: {data}</Span>
                   <FormButton
                     size="small"
                     onClick={() => {
-                      setData({ name: '' });
+                      setData('');
                       close();
                     }}
                   >

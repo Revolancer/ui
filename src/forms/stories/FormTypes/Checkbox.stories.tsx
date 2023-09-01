@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Checkbox, Form } from '../..';
+import { Checkbox, Form, InputInner, InputOuter } from '../..';
 import { Formik } from 'formik';
 import { useState } from 'react';
 import { Card, Divider, Flex } from '../../../layout';
@@ -56,19 +56,20 @@ const meta = {
       },
     },
   },
-  render: ({ checked, ...args }) => {
-    const [confirmed, setConfirm] = useState(false);
-    const submitHandler = (val: boolean, close: () => void) => {
-      setConfirm(val);
+  render: () => {
+    const [data, setData] = useState('');
+    const submitHandler = (dataSet: string, close: () => void) => {
+      setData(dataSet);
       close();
     };
     return (
       <>
         <Formik
           initialValues={{
-            confirm: false,
+            name: 'Stacy Fakename',
+            confirmed: false,
           }}
-          onSubmit={({ confirm }) => submitHandler(confirm, close)}
+          onSubmit={({ name }) => submitHandler(name, close)}
         >
           {(props) => (
             <Form onSubmit={props.handleSubmit}>
@@ -77,8 +78,9 @@ const meta = {
                   <H3>Form Component</H3>
                   <Divider />
                   <P>
-                    The form component is a styled nesting component for all
-                    your other form components when creating form for your
+                    The checkbox component is a styled component for
+                    confirmation actions (e.g. confirming profile changes or
+                    permanently deleting accounts) when creating forms for your
                     project.
                     <br />
                     <br />
@@ -87,13 +89,26 @@ const meta = {
                   </P>
                 </Card>
               </Flex>
-              <Checkbox checked={checked} {...args} />
-              <FormButton type="submit">Submit</FormButton>
+              <InputOuter>
+                <InputInner
+                  name="name"
+                  value={props.values.name}
+                  onChange={props.handleChange}
+                />
+              </InputOuter>
+              <Flex css={{ alignItems: 'center' }}>
+                <Checkbox name="confirmed" checked={props.values.confirmed}>
+                  I have read and accepted the terms and conditions
+                </Checkbox>
+              </Flex>
+              <FormButton type="submit" disabled={!props.values.confirmed}>
+                Submit
+              </FormButton>
             </Form>
           )}
         </Formik>
         <RevoModal
-          openOnTrigger={confirmed}
+          openOnTrigger={data !== ''}
           renderChildren={({ close }) => {
             return (
               <Card>
@@ -101,11 +116,11 @@ const meta = {
                   <H4>Data Submitted!</H4>
                   <H5>Here's your submission:</H5>
                   <Divider />
-                  <Span>confirmed: {confirmed ? 'true' : 'false'}</Span>
+                  <Span>name: {data}</Span>
                   <FormButton
                     size="small"
                     onClick={() => {
-                      setConfirm(false);
+                      setData('');
                       close();
                     }}
                   >
