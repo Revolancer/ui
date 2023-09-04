@@ -78,7 +78,9 @@ const meta = {
                 </Card>
               </Flex>
               <Slider {...args} />
-              <FormButton type="submit">Submit</FormButton>
+              <FormButton type="submit" disabled={props.values.val === 0}>
+                Submit
+              </FormButton>
             </Form>
           )}
         </Formik>
@@ -119,6 +121,6 @@ export const Default: Story = {
     step: 2,
     min: 0,
     max: 10,
-    name: 'slider',
+    name: 'val',
   },
 };
