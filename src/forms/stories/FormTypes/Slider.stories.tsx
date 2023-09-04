@@ -72,8 +72,8 @@ const meta = {
                     inside of your Form component.
                     <br />
                     <br />
-                    Make sure to wrap this in a Form component and is rendered
-                    through Formik's render props.
+                    Make sure to use this inside a Form component as it uses
+                    Field and FieldProps from Formik.
                   </P>
                 </Card>
               </Flex>

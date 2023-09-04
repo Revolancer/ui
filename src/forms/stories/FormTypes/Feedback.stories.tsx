@@ -18,7 +18,12 @@ const meta = {
       },
     },
   },
-  render: (args) => <Feedback {...args}>This is a feedback component</Feedback>,
+  render: (args) => (
+    <Feedback {...args}>
+      This is a{args.state === 'error' && 'n'}{' '}
+      {args.state === 'feedback' ? 'normal' : args.state} feedback component
+    </Feedback>
+  ),
 } satisfies Meta<typeof Feedback>;
 
 export default meta;

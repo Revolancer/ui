@@ -84,8 +84,8 @@ const meta = {
                     project.
                     <br />
                     <br />
-                    Make sure to wrap this in a Formik component and is rendered
-                    through Formik's render props.
+                    Make sure to use this component inside the Form component as
+                    the checkbox uses Formik's useFormikContext custom hook.
                   </P>
                 </Card>
               </Flex>
@@ -139,12 +139,4 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    name: 'Checkbox',
-    id: 'chkbx1',
-    defaultChecked: false,
-    checked: false,
-    required: false,
-  },
-};
+export const Default: Story = {};
