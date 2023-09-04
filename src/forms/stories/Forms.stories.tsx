@@ -8,6 +8,9 @@ import {
   Checkbox,
   Slider,
   TextAreaInner,
+  SelectGroup,
+  SelectItem,
+  Select,
 } from '..';
 import { useState } from 'react';
 import { H4, H5, P, Span } from '../../text';
@@ -89,6 +92,26 @@ const Template = ({ formTypes }: { formTypes: string[] }) => {
                 <Slider name="strength" max={20} step={2} />
               </>
             )}
+            {formTypes.includes('select') && (
+              <>
+                <H5>Method:</H5>
+                <P>Please check your strength check method.</P>
+                <Select name="method" placeholder="strength check">
+                  <SelectGroup>
+                    <SelectItem value="Lift Weights">
+                      Lift a 100kg Weight
+                    </SelectItem>
+                    <SelectItem value="FIGHT">Fight a Lion</SelectItem>
+                    <SelectItem value="I only play TTRPGs">
+                      Roll a D20
+                    </SelectItem>
+                    <SelectItem value="I have long since held back so many tears">
+                      Show emotional vulnerability
+                    </SelectItem>
+                  </SelectGroup>
+                </Select>
+              </>
+            )}
             {formTypes.includes('checkbox') && (
               <Checkbox name="confirm" checked={values.confirm}>
                 I have read and accepted the terms and conditions
@@ -119,28 +142,26 @@ const Template = ({ formTypes }: { formTypes: string[] }) => {
         openOnTrigger={Object.keys(data).length > 0}
         renderChildren={({ close }) => {
           return (
-            <Card>
-              <Flex column wrap>
-                <H4>Data Submitted!</H4>
-                <H5>Here's your submission:</H5>
-                <Divider />
-                {Object.entries(data).map(([key, value]) => (
-                  <Flex>
-                    <H5>{key}: </H5>
-                    <Span>{value}</Span>
-                  </Flex>
-                ))}
-                <FormButton
-                  size="small"
-                  onClick={() => {
-                    setData({});
-                    close();
-                  }}
-                >
-                  CLOSE
-                </FormButton>
-              </Flex>
-            </Card>
+            <Flex column wrap>
+              <H4>Data Submitted!</H4>
+              <H5>Here's your submission:</H5>
+              <Divider />
+              {Object.entries(data).map(([key, value]) => (
+                <Flex key={key}>
+                  <H5>{key}: </H5>
+                  <Span>{value}</Span>
+                </Flex>
+              ))}
+              <FormButton
+                size="small"
+                onClick={() => {
+                  setData({});
+                  close();
+                }}
+              >
+                CLOSE
+              </FormButton>
+            </Flex>
           );
         }}
       />
@@ -149,7 +170,7 @@ const Template = ({ formTypes }: { formTypes: string[] }) => {
 };
 
 const meta = {
-  title: 'Forms',
+  title: 'Forms/Forms',
   tags: ['autodocs'],
   component: Template,
   parameters: {
@@ -178,7 +199,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/**This Storybook document is an interactive form creator, it allows you to see the implementations of the different form input components available in the Revolancer UI Library */
+/**This Storybook document is an interactive form creator, it allows you to see the implementations of the different form input components available in the Revolancer UI Library. */
 export const Default: Story = {
   args: {
     formTypes: ['input', 'password'],

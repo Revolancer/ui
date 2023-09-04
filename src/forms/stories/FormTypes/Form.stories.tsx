@@ -35,12 +35,12 @@ const meta = {
                   <Divider />
                   <P>
                     The form component is a styled nesting component for all
-                    your other form components when creating form for your
+                    your other form components when creating a form for your
                     project.
                     <br />
                     <br />
                     Make sure to wrap this in a Formik component and is rendered
-                    through Formik's render props.
+                    through the Formik component's render props.
                   </P>
                 </Card>
               </Flex>
