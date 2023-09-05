@@ -16,8 +16,20 @@ export const THead = styled('thead', {
 export const TH = styled('th', {
   padding: '$2',
   textAlign: 'start',
+  borderStyle: '$solid',
+  borderColor: '$neutral400',
+  borderWidth: '$1',
 });
 
 export const TR = styled('tr', {});
 
-export const TD = styled('td', { padding: '$2' });
+export const TD = styled('td', {
+  padding: '$2',
+  borderStyle: '$solid',
+  borderColor: '$neutral400',
+  borderWidth: '$1',
+});
+
+export const TBody = styled('thead', {
+  backgroundColor: '$neutral100',
+});
