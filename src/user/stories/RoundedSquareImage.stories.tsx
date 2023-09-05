@@ -40,7 +40,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/**This Storybook document is for the rounded square image component, which allows users to show an iamge in a rounded square container, often used to showcase the user's profile image. */
+/**This Storybook document is for the rounded square image component, which allows users to show an image in a rounded square container, often used to showcase the user's profile image. */
 export const Default: Story = {
   args: {
     url: '',
