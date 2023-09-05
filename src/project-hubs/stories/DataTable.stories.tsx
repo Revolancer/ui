@@ -42,7 +42,7 @@ export const Default = () => {
     },
     {
       user: 'Stacy Fakename',
-      email: 'stacy@revolancer.com',
+      email: 'stacy@mentopolis.com',
       role: 'user',
     },
   ];
@@ -104,7 +104,7 @@ export const Default = () => {
                                 justifyContent: 'center',
                               }}
                             >
-                              <H3>MY NAME {row.user}</H3>
+                              <H3>MY NAME {row.user.toUpperCase()}</H3>
                             </Flex>
                           );
                         }}
