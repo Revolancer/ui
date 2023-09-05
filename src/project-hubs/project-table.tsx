@@ -20,4 +20,8 @@ export const TH = styled('th', {
 
 export const TR = styled('tr', {});
 
+export const TBody = styled('tbody', {
+  backgroundColor: '$neutral100',
+});
+
 export const TD = styled('td', { padding: '$2' });
