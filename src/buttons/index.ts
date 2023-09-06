@@ -254,3 +254,4 @@ export const TertiaryButton = styled(NextLink, tertiaryStyles);
 export const TertiaryFormButton = styled(Interactive.Button, tertiaryStyles);
 export const Link = styled(NextLink, linkStyles);
 export const UnstyledLink = styled(NextLink, unstyledLinkStyles);
+export * from './switch';
