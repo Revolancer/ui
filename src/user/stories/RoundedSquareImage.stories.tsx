@@ -34,6 +34,14 @@ const meta = {
         defaultValue: { summary: 'xl' },
       },
     },
+    loading: {
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
   },
 } satisfies Meta<typeof RoundedSquareImage>;
 
@@ -46,5 +54,6 @@ export const Default: Story = {
     url: '',
     alt: 'an invisible sloth',
     size: 'xl',
+    loading: false,
   },
 };

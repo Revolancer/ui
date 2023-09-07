@@ -1,14 +1,16 @@
-import { styled } from '../styles';
+import { styled, loadingStyles } from '../styles';
 import Image from 'next/image';
 
 export const RoundedSquareImage = ({
   url = '',
   size = 'xl',
   alt = '',
+  loading = false,
 }: {
   url?: string;
   alt?: string;
   size?: 'small' | 'medium' | 'large' | 'xl';
+  loading?: boolean;
 }) => {
   const sizePixels = (size: 'small' | 'medium' | 'large' | 'xl') => {
     switch (size) {
@@ -46,6 +48,11 @@ export const RoundedSquareImage = ({
           borderRadius: '$2',
         },
       },
+      loading: {
+        true: {
+          ...loadingStyles,
+        },
+      },
     },
   });
 
@@ -54,8 +61,8 @@ export const RoundedSquareImage = ({
   });
 
   return (
-    <ProfileImageContainer size={size}>
-      {url && url != '' && (
+    <ProfileImageContainer size={size} loading={loading}>
+      {!loading && url && url != '' && (
         <>
           <ProfileImage
             src={url}
