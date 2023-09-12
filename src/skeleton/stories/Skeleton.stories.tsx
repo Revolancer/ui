@@ -94,7 +94,8 @@ const meta = {
             </Flex>
             <P>
               lorem ipsum i dont know the rest of the lyrics to this. I'm just
-              riffing on what the last guy said, a la improv y'know? Like, how improv relies on "yes, and..?"
+              riffing on what the last guy said, a la improv y'know? Like, how
+              improv relies on "yes, and..?"
             </P>
           </Flex>
         </>
