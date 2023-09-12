@@ -1,6 +1,6 @@
 {
   "name": "@revolancer/ui",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Revolancer UI Library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,6 +14,7 @@
     "./modals": "./dist/modals/index.js",
     "./navigation": "./dist/navigation/index.js",
     "./project-hubs": "./dist/project-hubs/index.js",
+    "./skeleton": "./dist/skeleton/index.js",
     "./text": "./dist/text/index.js",
     "./user": "./dist/user/index.js"
   },
@@ -39,6 +40,9 @@
       ],
       "project-hubs": [
         "dist/project-hubs/index.d.ts"
+      ],
+      "skeleton": [
+        "dist/skeleton/index.d.ts"
       ],
       "text": [
         "dist/text/index.d.ts"
