@@ -1,6 +1,6 @@
 {
   "name": "@revolancer/ui",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Revolancer UI Library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
