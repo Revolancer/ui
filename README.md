@@ -1,5 +1,7 @@
 # Revolancer UI
 
+[![Storybook](https://github.com/storybookjs/brand/raw/main/badge/badge-storybook.svg)](https://revolancer.github.io/ui)
+
 This is the Revolancer UI library for Next.js. Copyright 2021-2023 Revolancer Ltd, all rights reserved.
 
 ## Contributing
