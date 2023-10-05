@@ -71,10 +71,8 @@ export const RevoModal = ({
           if (onClose) {
             onClose();
             modalClose();
-            console.log('here');
           } else {
             modalClose();
-            console.log('there');
           }
         }}
         css={{
