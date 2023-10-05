@@ -122,7 +122,11 @@ export const Default: Story = {
                           openOnTrigger={false}
                           showModalOpenCTA
                           showCloseIcon
-                          modalCTALabel={row.user}
+                          renderCTA={({ open }) => (
+                            <TertiaryFormButton onClick={() => open()}>
+                              {row.user}
+                            </TertiaryFormButton>
+                          )}
                           renderChildren={({ close }) => {
                             return (
                               <Flex

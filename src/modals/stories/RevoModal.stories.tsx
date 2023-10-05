@@ -18,12 +18,12 @@ const meta = {
         defaultValue: { summary: false },
       },
     },
-    modalCTALabel: {
+    openOnTrigger: {
       control: {
-        type: 'text',
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'Open Modal' },
+        defaultValue: { summary: false },
       },
     },
     showCloseIcon: {
@@ -35,6 +35,8 @@ const meta = {
       },
     },
     renderChildren: {},
+    renderCTA: {},
+    onClose: {},
   },
 } satisfies Meta<typeof Modal>;
 
@@ -45,7 +47,6 @@ export const Default: Story = {
   args: {
     openOnTrigger: true,
     showModalOpenCTA: false,
-    modalCTALabel: '',
     showCloseIcon: false,
     renderChildren: ({ close }) => {
       return (
@@ -110,7 +111,6 @@ export const WithOpenModalCTA: Story = {
     ...Default.args,
     openOnTrigger: false,
     showModalOpenCTA: true,
-    modalCTALabel: 'PRESS ME',
     renderChildren: ({ close }) => {
       return (
         <>
@@ -169,7 +169,11 @@ export const CTAWithHandleSubmit: Story = {
         </Flex>
         <Modal
           {...args}
-          modalCTALabel={submitHandled ? 'un-handle submit' : 'handle submit'}
+          renderCTA={({ open }) => (
+            <Button href="#" onClick={() => open()}>
+              {submitHandled && 'un-'}handle submit
+            </Button>
+          )}
           renderChildren={({ close }) => {
             // your return statement can be whatever JSX you plan on using, just make sure CTAs include calling the handleSubmit function defined earlier
             return (
@@ -242,6 +246,7 @@ export const OpenOnTrigger: Story = {
         <Modal
           {...args}
           openOnTrigger={count > maxCount}
+          onClose={() => handleClose(close)}
           renderChildren={({ close }) => {
             return (
               <>
