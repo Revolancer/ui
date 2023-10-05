@@ -122,6 +122,7 @@ export const Default: Story = {
                           openOnTrigger={false}
                           showModalOpenCTA
                           showCloseIcon
+                          css={{ width: '50%', height: '150px' }}
                           renderCTA={({ open }) => (
                             <TertiaryFormButton onClick={() => open()}>
                               {row.user}

@@ -4,22 +4,6 @@ import { ReactNode, useEffect, useState } from 'react';
 import { Button } from '../buttons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-
-const customStyles: Modal.Styles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    background: 'none',
-    border: 'none',
-    overflow: 'visible',
-    padding: '0',
-  },
-};
-
 export interface ModalProps {
   /** Set a trigger to open the modal, set the prop to true to open on load */
   openOnTrigger?: boolean;
@@ -33,6 +17,8 @@ export interface ModalProps {
   renderCTA?: ({ open }: { open: () => void }) => ReactNode;
   /** Custom handleclose function */
   onClose?: () => void;
+  /** Additional modal Card CSS */
+  css?: object;
 }
 
 /** A Reusable Modal Component for Revolancer UI library */
@@ -43,6 +29,7 @@ export const RevoModal = ({
   renderChildren,
   onClose,
   renderCTA,
+  css = {},
 }: ModalProps) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const modalOpen = () => {
@@ -57,6 +44,21 @@ export const RevoModal = ({
   }, [openOnTrigger]);
 
   //Modal.setAppElement('#__next');
+  const customStyles: Modal.Styles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      background: 'none',
+      border: 'none',
+      overflow: 'visible',
+      padding: '0',
+      ...css,
+    },
+  };
 
   const renderCloseIcon = (
     <Flex
@@ -117,10 +119,8 @@ export const RevoModal = ({
           if (onClose) {
             onClose();
             modalClose();
-            console.log('here');
           } else {
             modalClose();
-            console.log('there');
           }
         }}
         style={customStyles}
