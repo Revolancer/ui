@@ -25,21 +25,24 @@ export interface ModalProps {
   openOnTrigger?: boolean;
   /** Displays a default CTA to open the modal */
   showModalOpenCTA?: boolean;
-  /** String prop to customize the CTA label */
-  modalCTALabel?: string;
   /** Displays the close icon in the modal */
   showCloseIcon?: boolean;
   /** Defines the child components in the modal, you can use handle functions from the parent component */
   renderChildren: ({ close }: { close: () => void }) => ReactNode;
+  /** Defines the CTA */
+  renderCTA?: ({ open }: { open: () => void }) => ReactNode;
+  /** Custom handleclose function */
+  onClose?: () => void;
 }
 
 /** A Reusable Modal Component for Revolancer UI library */
 export const RevoModal = ({
   openOnTrigger = true,
   showModalOpenCTA = false,
-  modalCTALabel = 'Show Modal',
   showCloseIcon = false,
   renderChildren,
+  onClose,
+  renderCTA,
 }: ModalProps) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const modalOpen = () => {
@@ -64,7 +67,16 @@ export const RevoModal = ({
     >
       <Button
         href="#"
-        onClick={() => modalClose()}
+        onClick={() => {
+          if (onClose) {
+            onClose();
+            modalClose();
+            console.log('here');
+          } else {
+            modalClose();
+            console.log('there');
+          }
+        }}
         css={{
           backgroundColor: '$background',
           borderWidth: '0px',
@@ -88,16 +100,31 @@ export const RevoModal = ({
     </Flex>
   );
 
+  const renderOpenModal =
+    showModalOpenCTA &&
+    (renderCTA ? (
+      renderCTA({ open: modalOpen })
+    ) : (
+      <Button role="primary" href="#" onClick={() => modalOpen()}>
+        Open
+      </Button>
+    ));
+
   return (
     <>
-      {showModalOpenCTA && (
-        <Button role="primary" href="#" onClick={() => modalOpen()}>
-          {modalCTALabel}
-        </Button>
-      )}
+      {renderOpenModal}
       <Modal
         isOpen={modalIsOpen}
-        onRequestClose={() => modalClose()}
+        onRequestClose={() => {
+          if (onClose) {
+            onClose();
+            modalClose();
+            console.log('here');
+          } else {
+            modalClose();
+            console.log('there');
+          }
+        }}
         style={customStyles}
       >
         <Card
