@@ -1,75 +1,85 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import {
-  DropDown,
-  DropDownRadioGroup,
-  DropdownLabel,
-  DropdownMenuCheckboxItem,
-  DropdownMenuItem,
-  DropdownMenuRadioItem,
-  DropdownSeparator,
+  Dropdown,
   DropdownSubMenu,
+  DropdownGroup,
+  DropdownMenuItem,
+  DropdownLabel,
+  DropdownSeparator,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuCheckboxItem,
 } from '../dropdown';
 
 const meta = {
   title: 'Collapsible/Dropdown',
-  component: DropDown,
+  component: Dropdown,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
   argTypes: {
-    label: {
+    placeholder: {
       control: {
         type: 'text',
       },
       table: {
-        defaultValue: { summary: 'open me' },
+        defaultValue: { summary: 'Dropdown' },
       },
     },
+    open: {},
+    onOpen: {},
+    children: {},
   },
-  render: ({ ...args }) => {
+  render: ({ open, onOpen, ...args }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [isSubOpen, setIsSubOpen] = useState(false);
     const [bookmarksChecked, setBookmarksChecked] = useState(true);
     const [urlsChecked, setUrlsChecked] = useState(false);
-    const [person, setPerson] = useState('pedro');
+    const [person, setPerson] = useState('B1');
 
     return (
-      <DropDown {...args}>
+      <Dropdown open={isOpen} onOpen={() => setIsOpen(!isOpen)} {...args}>
         <DropdownLabel>Sub Menu</DropdownLabel>
-        <DropdownSubMenu label="Click here">
-          <DropdownMenuItem>Sub Item</DropdownMenuItem>
+        <DropdownSubMenu
+          open={isSubOpen}
+          onOpen={() => setIsSubOpen(!isSubOpen)}
+          placeholder="Sub Menu"
+        >
+          <DropdownGroup>
+            <DropdownMenuItem>HELLO</DropdownMenuItem>
+            <DropdownMenuItem>LOL</DropdownMenuItem>
+            <DropdownMenuItem>HI</DropdownMenuItem>
+          </DropdownGroup>
         </DropdownSubMenu>
         <DropdownSeparator />
-        <DropdownLabel>Checkbox Items</DropdownLabel>
+        <DropdownLabel>CheckBoxes</DropdownLabel>
         <DropdownMenuCheckboxItem
           checked={bookmarksChecked}
-          onCheckedChange={setBookmarksChecked}
-        >
-          Check Bookmarks
-        </DropdownMenuCheckboxItem>
+          onCheckedChange={() => setBookmarksChecked(!bookmarksChecked)}
+          textValue="Bookmarks"
+        />
         <DropdownMenuCheckboxItem
           checked={urlsChecked}
-          onCheckedChange={setUrlsChecked}
+          onCheckedChange={() => setUrlsChecked(!urlsChecked)}
+          textValue="URLs"
+        />
+        <DropdownSeparator />
+        <DropdownLabel>Radio</DropdownLabel>
+        <DropdownMenuRadioGroup
+          value={person}
+          onValueChange={(value) => setPerson(value)}
         >
-          Check two
-        </DropdownMenuCheckboxItem>
-        <DropdownSeparator />
-        <DropdownLabel>Dropdown Radio</DropdownLabel>
-        <DropDownRadioGroup value={person} onValueChange={setPerson}>
-          <DropdownMenuRadioItem value="B1">B1</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="B2">B2</DropdownMenuRadioItem>
-        </DropDownRadioGroup>
-        <DropdownSeparator />
-      </DropDown>
+          <DropdownMenuRadioItem value="B1" textValue="B1" />
+          <DropdownMenuRadioItem value="B2" textValue="B2" />
+          <DropdownMenuRadioItem value="B3" textValue="B3" disabled />
+        </DropdownMenuRadioGroup>
+      </Dropdown>
     );
   },
-} satisfies Meta<typeof DropDown>;
+} satisfies Meta<typeof Dropdown>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    label: 'Dropdown Menu',
-  },
-};
+export const Default: Story = {};

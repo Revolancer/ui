@@ -1,14 +1,12 @@
 import React from 'react';
 import * as RadixDropdown from '@radix-ui/react-dropdown-menu';
-import { styled, keyframes, darkTheme } from '../styles';
+import { darkTheme, keyframes, styled } from '../styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faBars,
   faCheck,
-  faChevronRight,
+  faChevronDown,
   faCircle,
 } from '@fortawesome/free-solid-svg-icons';
-import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 const slideUpAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(2px)' },
@@ -30,69 +28,11 @@ const slideLeftAndFade = keyframes({
   '100%': { opacity: 1, transform: 'translateX(0)' },
 });
 
-const contentStyles = {
-  overflow: 'hidden',
-  backgroundColor: '$background',
-  borderRadius: '$1',
-  boxShadow: '$1',
-  borderColor: '$neutral400',
-  borderStyle: '$solid',
-  borderWidth: '$1',
-  animationDuration: '400ms',
-  animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-  willChange: 'transform, opacity',
-  '&[data-state="open"]': {
-    '&[data-side="top"]': { animationName: slideDownAndFade },
-    '&[data-side="right"]': { animationName: slideLeftAndFade },
-    '&[data-side="bottom"]': { animationName: slideUpAndFade },
-    '&[data-side="left"]': { animationName: slideRightAndFade },
-  },
-};
-
 const DropdownRoot = styled(RadixDropdown.Root, {
   flexShrink: 0,
 });
-const DropdownContent = styled(RadixDropdown.Content, contentStyles);
-const DropdownSubContent = styled(RadixDropdown.SubContent, contentStyles);
 
-const itemStyles = {
-  fontSize: '$body2',
-  lineHeight: '$body2',
-  color: '$neutral800',
-  borderRadius: '$1',
-  display: 'flex',
-  alignItems: 'center',
-  padding: '4px 32px 4px 28px',
-  position: 'relative',
-  userSelect: 'none',
-
-  '&[data-disabled]': {
-    color: '$neutral300',
-    pointerEvents: 'none',
-  },
-
-  '&[data-highlighted]': {
-    outline: 'none',
-    backgroundColor: '$pink500',
-    color: '$white',
-  },
-
-  [`.${darkTheme} &`]: {
-    '&[data-disabled]': {
-      color: '$neutral600',
-    },
-
-    '&[data-highlighted]': {
-      backgroundColor: '$pink500',
-      color: '$neutral900',
-    },
-  },
-};
-
-const DropdownItem = styled(RadixDropdown.Item, itemStyles);
-const DropdownCheckboxItem = styled(RadixDropdown.CheckboxItem, itemStyles);
-const DropdownRadioItem = styled(RadixDropdown.RadioItem, itemStyles);
-const DropdownSubTrigger = styled(RadixDropdown.SubTrigger, {
+const triggerStyles = {
   all: 'unset',
   display: 'inline-flex',
   alignItems: 'center',
@@ -141,32 +81,70 @@ const DropdownSubTrigger = styled(RadixDropdown.SubTrigger, {
       },
     },
   },
-});
+};
 
-const DropdownItemIndicator = styled(RadixDropdown.ItemIndicator, {
-  position: 'absolute',
-  left: '$1',
-  width: '$7',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
+const DropdownTrigger = styled(RadixDropdown.Trigger, triggerStyles);
 
-const IconButton = styled('button', {
-  all: 'unset',
-  fontFamily: 'inherit',
-  borderRadius: '100%',
-  height: 35,
-  width: 35,
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: '$pink500',
-  backgroundColor: 'white',
+const DropdownPortal = RadixDropdown.Portal;
+
+const contentStyles = {
+  overflow: 'hidden',
+  backgroundColor: '$background',
+  borderRadius: '$1',
   boxShadow: '$1',
-  '&:hover': { backgroundColor: '$pink500' },
-  '&:focus': { boxShadow: '$1' },
-});
+  borderColor: '$neutral400',
+  borderStyle: '$solid',
+  borderWidth: '$1',
+  animationDuration: '400ms',
+  animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+  willChange: 'transform, opacity',
+  '&[data-state="open"]': {
+    '&[data-side="top"]': { animationName: slideDownAndFade },
+    '&[data-side="right"]': { animationName: slideLeftAndFade },
+    '&[data-side="bottom"]': { animationName: slideUpAndFade },
+    '&[data-side="left"]': { animationName: slideRightAndFade },
+  },
+};
+
+const DropdownContent = styled(RadixDropdown.Content, contentStyles);
+
+const itemStyles = {
+  fontSize: '$body2',
+  lineHeight: '$body2',
+  color: '$neutral800',
+  borderRadius: '$1',
+  display: 'flex',
+  alignItems: 'center',
+  padding: '4px 32px 4px 28px',
+  position: 'relative',
+  userSelect: 'none',
+
+  '&[data-disabled]': {
+    color: '$neutral300',
+    pointerEvents: 'none',
+  },
+
+  '&[data-highlighted]': {
+    outline: 'none',
+    backgroundColor: '$pink500',
+    color: '$white',
+  },
+
+  [`.${darkTheme} &`]: {
+    '&[data-disabled]': {
+      color: '$neutral600',
+    },
+
+    '&[data-highlighted]': {
+      backgroundColor: '$pink500',
+      color: '$neutral900',
+    },
+  },
+};
+
+const DropdownItem = styled(RadixDropdown.Item, itemStyles);
+
+const DropdownGroup = RadixDropdown.Group;
 
 const DropdownLabel = styled(RadixDropdown.Label, {
   fontSize: '$body2',
@@ -178,61 +156,93 @@ const DropdownLabel = styled(RadixDropdown.Label, {
   },
 });
 
+const RightSlot = styled('div', {
+  marginLeft: 'auto',
+  paddingLeft: '$6',
+  color: '$neutral500',
+  '[data-highlighted] > &': { color: 'white' },
+  '[data-disabled] &': { color: '$neutral300' },
+});
+
+const DropdownCheckboxItem = styled(RadixDropdown.CheckboxItem, itemStyles);
+
+const DropdownRadioGroup = styled(RadixDropdown.RadioGroup, contentStyles);
+
+const DropdownRadioItem = styled(RadixDropdown.RadioItem, itemStyles);
+
+const DropdownItemIndicator = styled(RadixDropdown.ItemIndicator, {
+  position: 'absolute',
+  left: '4px',
+  width: '24px',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
 const DropdownSeparator = styled(RadixDropdown.Separator, {
-  height: '$1',
+  height: 1,
   backgroundColor: '$neutral600',
-  margin: '$3',
+  margin: 5,
   [`.${darkTheme} &`]: {
     backgroundColor: '$neutral300',
   },
 });
 
-const DropDown = ({
+const DropdownSub = styled(RadixDropdown.Sub, itemStyles);
+
+const DropdownSubTrigger = RadixDropdown.SubTrigger;
+
+const DropdownSubContent = styled(RadixDropdown.SubContent, contentStyles);
+
+const Dropdown = ({
+  placeholder,
+  open,
+  onOpen,
   children,
-  label,
-  icon,
 }: {
+  placeholder: string;
+  open: boolean;
+  onOpen: () => void;
   children: any;
-  label: string;
-  icon?: IconDefinition;
 }) => {
   return (
-    <DropdownRoot>
-      <RadixDropdown.Trigger asChild>
-        {label && <RadixDropdown.Label>{label}</RadixDropdown.Label>}
-        <IconButton aria-label="Customise options">
-          <FontAwesomeIcon icon={icon ?? faBars} />
-        </IconButton>
-      </RadixDropdown.Trigger>
-
-      <RadixDropdown.Portal>
-        <DropdownContent sideOffset={5}>{children}</DropdownContent>
-      </RadixDropdown.Portal>
+    <DropdownRoot onOpenChange={onOpen} open={open}>
+      <DropdownTrigger>
+        <DropdownLabel placeholder={placeholder} />
+        <RightSlot>
+          <FontAwesomeIcon icon={faChevronDown} />
+        </RightSlot>
+      </DropdownTrigger>
+      <DropdownPortal>
+        <DropdownContent>{children}</DropdownContent>
+      </DropdownPortal>
     </DropdownRoot>
   );
 };
 
 const DropdownSubMenu = ({
+  placeholder,
+  open,
+  onOpen,
   children,
-  label,
-  icon,
 }: {
+  placeholder: string;
+  open: boolean;
+  onOpen: () => void;
   children: any;
-  label: string;
-  icon?: IconDefinition;
 }) => {
   return (
-    <RadixDropdown.Sub>
+    <DropdownSub open={open} onOpenChange={onOpen}>
       <DropdownSubTrigger>
-        <IconButton aria-label="Dropdown Sub Menu">
-          <FontAwesomeIcon icon={icon ?? faChevronRight} />
-        </IconButton>
-        {label}
+        <DropdownLabel placeholder={placeholder} />
+        <RightSlot>
+          <FontAwesomeIcon icon={faChevronDown} />
+        </RightSlot>
       </DropdownSubTrigger>
-      <RadixDropdown.Portal>
+      <DropdownPortal>
         <DropdownSubContent>{children}</DropdownSubContent>
-      </RadixDropdown.Portal>
-    </RadixDropdown.Sub>
+      </DropdownPortal>
+    </DropdownSub>
   );
 };
 
@@ -240,80 +250,85 @@ const DropdownMenuItem = ({ children, ...props }: { children: any }) => {
   return <DropdownItem {...props}>{children}</DropdownItem>;
 };
 
-const DropdownMenuCheckboxItem = ({
+const DropdownMenuRadioGroup = ({
+  value,
+  onValueChange,
   children,
-  checked,
-  onCheckedChange,
-  icon,
   ...props
 }: {
+  value: any;
+  onValueChange: (value: any) => void;
   children: any;
+}) => {
+  return (
+    <DropdownRadioGroup value={value} onValueChange={onValueChange} {...props}>
+      {children}
+    </DropdownRadioGroup>
+  );
+};
+
+const DropdownMenuRadioItem = ({
+  value,
+  disabled = false,
+  onSelect,
+  textValue,
+  ...props
+}: {
+  value: string;
+  disabled?: boolean;
+  onSelect?: () => void;
+  textValue: string;
+}) => {
+  return (
+    <DropdownRadioItem
+      value={value}
+      onSelect={onSelect}
+      textValue={textValue}
+      {...props}
+    >
+      <DropdownItemIndicator>
+        <FontAwesomeIcon icon={faCircle} />
+      </DropdownItemIndicator>
+    </DropdownRadioItem>
+  );
+};
+
+const DropdownMenuCheckboxItem = ({
+  checked,
+  onCheckedChange,
+  disabled,
+  onSelect,
+  textValue,
+  ...props
+}: {
   checked: boolean;
-  onCheckedChange: any;
-  icon?: IconDefinition;
+  onCheckedChange: () => void;
+  disabled?: boolean;
+  onSelect?: () => void;
+  textValue: string;
 }) => {
   return (
     <DropdownCheckboxItem
       checked={checked}
       onCheckedChange={onCheckedChange}
+      textValue={textValue}
       {...props}
     >
       <DropdownItemIndicator>
-        <FontAwesomeIcon icon={icon ?? faCheck} />
+        <FontAwesomeIcon icon={faCheck} />
       </DropdownItemIndicator>
-      {children}
     </DropdownCheckboxItem>
   );
 };
 
-const DropDownRadioGroup = ({
-  children,
-  value,
-  onValueChange,
-  ...props
-}: {
-  children: any;
-  value: any;
-  onValueChange: any;
-}) => {
-  return (
-    <RadixDropdown.RadioGroup
-      value={value}
-      onValueChange={onValueChange}
-      {...props}
-    >
-      {children}
-    </RadixDropdown.RadioGroup>
-  );
-};
-
-const DropdownMenuRadioItem = ({
-  children,
-  value,
-  icon,
-  ...props
-}: {
-  children: any;
-  value: string;
-  icon?: IconDefinition;
-}) => {
-  return (
-    <DropdownRadioItem value={value} {...props}>
-      <DropdownItemIndicator>
-        <FontAwesomeIcon icon={icon ?? faCircle} />
-      </DropdownItemIndicator>
-      {children}
-    </DropdownRadioItem>
-  );
-};
-
 export {
+  Dropdown,
+  DropdownSubMenu,
+  DropdownGroup,
+  DropdownMenuItem,
   DropdownLabel,
   DropdownSeparator,
-  DropDown,
-  DropdownSubMenu,
-  DropdownMenuItem,
-  DropdownMenuCheckboxItem,
-  DropDownRadioGroup,
+  DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
+  DropdownMenuCheckboxItem,
 };
