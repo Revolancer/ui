@@ -315,5 +315,5 @@ export {
   DropdownMenuItem,
   DropdownMenuCheckboxItem,
   DropDownRadioGroup,
-  DropdownMenuRadioItem
+  DropdownMenuRadioItem,
 };

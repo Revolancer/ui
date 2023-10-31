@@ -28,7 +28,7 @@ const meta = {
       },
     },
   },
-  render: ({...args}) => {
+  render: ({ ...args }) => {
     const [bookmarksChecked, setBookmarksChecked] = useState(true);
     const [urlsChecked, setUrlsChecked] = useState(false);
     const [person, setPerson] = useState('pedro');
@@ -71,5 +71,5 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     label: 'Dropdown Menu',
-  }
+  },
 };
