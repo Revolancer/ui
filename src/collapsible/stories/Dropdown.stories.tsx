@@ -31,7 +31,7 @@ const meta = {
     onOpen: {},
     children: {},
   },
-  render: ({ open, onOpen, ...args }) => {
+  render: ({ open, onOpen, placeholder, ...args }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isSubOpen, setIsSubOpen] = useState(false);
     const [bookmarksChecked, setBookmarksChecked] = useState(true);
@@ -39,7 +39,12 @@ const meta = {
     const [person, setPerson] = useState('B1');
 
     return (
-      <Dropdown open={isOpen} onOpen={() => setIsOpen(!isOpen)} {...args}>
+      <Dropdown
+        open={isOpen}
+        onOpen={() => setIsOpen(!isOpen)}
+        placeholder="Dropdown"
+        {...args}
+      >
         <DropdownLabel>Sub Menu</DropdownLabel>
         <DropdownSubMenu
           open={isSubOpen}
@@ -57,22 +62,26 @@ const meta = {
         <DropdownMenuCheckboxItem
           checked={bookmarksChecked}
           onCheckedChange={() => setBookmarksChecked(!bookmarksChecked)}
-          textValue="Bookmarks"
-        />
+        >
+          Bookmarks
+        </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
           checked={urlsChecked}
           onCheckedChange={() => setUrlsChecked(!urlsChecked)}
-          textValue="URLs"
-        />
+        >
+          URLs
+        </DropdownMenuCheckboxItem>
         <DropdownSeparator />
         <DropdownLabel>Radio</DropdownLabel>
         <DropdownMenuRadioGroup
           value={person}
           onValueChange={(value) => setPerson(value)}
         >
-          <DropdownMenuRadioItem value="B1" textValue="B1" />
-          <DropdownMenuRadioItem value="B2" textValue="B2" />
-          <DropdownMenuRadioItem value="B3" textValue="B3" disabled />
+          <DropdownMenuRadioItem value="B1">B1</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="B2">B2</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="B3" disabled>
+            B3
+          </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </Dropdown>
     );
@@ -82,4 +91,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    placeholder: 'Dropdown',
+    open: true,
+  },
+};
