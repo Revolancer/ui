@@ -328,7 +328,10 @@ const DropdownMenuRadioItem = ({
   return (
     <DropdownRadioItem
       value={value}
-      onSelect={onSelect}
+      onSelect={(e) => {
+        e.preventDefault();
+        onSelect;
+      }}
       disabled={disabled}
       {...props}
     >
@@ -359,6 +362,10 @@ const DropdownMenuCheckboxItem = ({
       checked={checked}
       onCheckedChange={onCheckedChange}
       disabled={disabled}
+      onSelect={(e) => {
+        e.preventDefault();
+        onSelect;
+      }}
       {...props}
     >
       <DropdownItemIndicator>
