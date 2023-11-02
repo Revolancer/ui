@@ -99,6 +99,7 @@ const triggerStyles = {
   borderStyle: '$solid',
   borderWidth: '$1',
   borderRadius: '$1',
+  width: '100%',
 
   '&:hover': { backgroundColor: '$neutral100' },
   '&[data-placeholder]': { color: '$neutral600' },
@@ -328,7 +329,7 @@ const DropdownMenuRadioItem = ({
   return (
     <DropdownRadioItem
       value={value}
-      onSelect={(e) => {
+      onSelect={(e: any) => {
         e.preventDefault();
         onSelect;
       }}
@@ -362,7 +363,7 @@ const DropdownMenuCheckboxItem = ({
       checked={checked}
       onCheckedChange={onCheckedChange}
       disabled={disabled}
-      onSelect={(e) => {
+      onSelect={(e: any) => {
         e.preventDefault();
         onSelect;
       }}
