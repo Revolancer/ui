@@ -29,59 +29,6 @@ const slideLeftAndFade = keyframes({
   '100%': { opacity: 1, transform: 'translateX(0)' },
 });
 
-const contentStyles = {
-  overflow: 'hidden',
-  backgroundColor: '$background',
-  borderRadius: '$1',
-  boxShadow: '$1',
-  borderColor: '$neutral400',
-  borderStyle: '$solid',
-  borderWidth: '$1',
-  animationDuration: '400ms',
-  animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-  willChange: 'transform, opacity',
-  '&[data-state="open"]': {
-    '&[data-side="top"]': { animationName: slideDownAndFade },
-    '&[data-side="right"]': { animationName: slideLeftAndFade },
-    '&[data-side="bottom"]': { animationName: slideUpAndFade },
-    '&[data-side="left"]': { animationName: slideRightAndFade },
-  },
-};
-
-const itemStyles = {
-  fontSize: '$body2',
-  lineHeight: '$body2',
-  color: '$neutral800',
-  borderRadius: '$1',
-  display: 'flex',
-  alignItems: 'center',
-  padding: '4px 32px 4px 28px',
-  position: 'relative',
-  userSelect: 'none',
-
-  '&[data-disabled]': {
-    color: '$neutral300',
-    pointerEvents: 'none',
-  },
-
-  '&[data-highlighted]': {
-    outline: 'none',
-    backgroundColor: '$pink500',
-    color: '$white',
-  },
-
-  [`.${darkTheme} &`]: {
-    '&[data-disabled]': {
-      color: '$neutral600',
-    },
-
-    '&[data-highlighted]': {
-      backgroundColor: '$pink500',
-      color: '$neutral900',
-    },
-  },
-};
-
 const triggerStyles = {
   all: 'unset',
   display: 'inline-flex',
@@ -130,6 +77,60 @@ const triggerStyles = {
           borderColor: '$orange500',
         },
       },
+    },
+  },
+};
+
+const contentStyles = {
+  overflow: 'hidden',
+  backgroundColor: '$background',
+  minWidth: '210px',
+  borderRadius: '$1',
+  boxShadow: '$1',
+  borderColor: '$neutral400',
+  borderStyle: '$solid',
+  borderWidth: '$1',
+  animationDuration: '400ms',
+  animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+  willChange: 'transform, opacity',
+  '&[data-state="open"]': {
+    '&[data-side="top"]': { animationName: slideDownAndFade },
+    '&[data-side="right"]': { animationName: slideLeftAndFade },
+    '&[data-side="bottom"]': { animationName: slideUpAndFade },
+    '&[data-side="left"]': { animationName: slideRightAndFade },
+  },
+};
+
+const itemStyles = {
+  fontSize: '$body2',
+  lineHeight: '$body2',
+  color: '$neutral800',
+  borderRadius: '$1',
+  display: 'flex',
+  alignItems: 'center',
+  padding: '$3 $9',
+  position: 'relative',
+  userSelect: 'none',
+
+  '&[data-disabled]': {
+    color: '$neutral300',
+    pointerEvents: 'none',
+  },
+
+  '&[data-highlighted]': {
+    outline: 'none',
+    backgroundColor: '$pink500',
+    color: '$white',
+  },
+
+  [`.${darkTheme} &`]: {
+    '&[data-disabled]': {
+      color: '$neutral600',
+    },
+
+    '&[data-highlighted]': {
+      backgroundColor: '$pink500',
+      color: '$neutral900',
     },
   },
 };
@@ -184,6 +185,13 @@ const DropdownSeparator = styled(RadixDropdown.Separator, {
   margin: 5,
   [`.${darkTheme} &`]: {
     backgroundColor: '$neutral300',
+  },
+  variants: {
+    light: {
+      true: {
+        backgroundColor: '$neutral400',
+      },
+    },
   },
 });
 
@@ -257,7 +265,7 @@ const Dropdown = ({
         </RightSlot>
       </DropdownTrigger>
       <RadixDropdown.Portal>
-        <DropdownContent>{children}</DropdownContent>
+        <DropdownContent sideOffset={12}>{children}</DropdownContent>
       </RadixDropdown.Portal>
     </DropdownRoot>
   );
