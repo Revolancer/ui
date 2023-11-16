@@ -111,6 +111,6 @@ export const WithHref: Story = {
       <>
         <TagArray tags={tagArray} expander />
       </>
-    )
-  }
-}
+    );
+  },
+};
