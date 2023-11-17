@@ -166,17 +166,86 @@ const RightSlot = styled('div', {
   '[data-disabled] &': { color: '$neutral300' },
 });
 
-const DropdownCheckboxItem = styled(RadixDropdown.CheckboxItem, itemStyles);
+const DropdownCheckboxItem = styled(RadixDropdown.CheckboxItem, {
+  ...itemStyles,
+  justifyContent: 'flex-start',
+  paddingLeft: '$3',
+});
 
-const DropdownRadioItem = styled(RadixDropdown.RadioItem, itemStyles);
+const DropdownRadioItem = styled(RadixDropdown.RadioItem, {
+  ...itemStyles,
+  justifyContent: 'flex-start',
+  paddingLeft: '$3',
+});
 
-const DropdownItemIndicator = styled(RadixDropdown.ItemIndicator, {
-  position: 'absolute',
-  left: '4px',
-  width: '24px',
+const DropdownItemIndicatorRoot = styled('div', {
+  position: 'relative',
+  left: '$1',
+  marginRight: '$3',
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
+  borderWidth: '$1',
+  borderColor: '$neutral400',
+  borderStyle: '$solid',
+  boxShadow: '$2',
+  color: 'transparent',
+  transition: '$smoothly',
+  cursor: 'pointer',
+  overflow: 'hidden',
+
+  variants: {
+    size: {
+      small: {
+        width: '$7',
+        height: '$7',
+      },
+      medium: {
+        width: '$9',
+        height: '$9',
+        marginRight: '$4',
+      },
+    },
+    variant: {
+      checkbox: {
+        borderRadius: '$1',
+      },
+      radio: {
+        borderRadius: '999px',
+      },
+    },
+  },
+  compoundVariants: [
+    {
+      size: 'small',
+      variant: 'radio',
+      css: {
+        fontSize: '8px',
+      },
+    },
+    {
+      size: 'medium',
+      variant: 'radio',
+      css: {
+        fontSize: '12px',
+      },
+    },
+  ],
+  defaultVariants: {
+    size: 'small',
+    variant: 'checkbox',
+  },
+});
+
+const DropdownItemIndicator = styled(RadixDropdown.ItemIndicator, {
+  display: 'inline-flex',
+  alignItems: 'center',
+  width: '$9',
+  height: '$9',
+  justifyContent: 'center',
+  backgroundColor: '$pink500',
+  color: '$white',
+  fontWeight: '$bold',
 });
 
 const DropdownSeparator = styled(RadixDropdown.Separator, {
@@ -202,7 +271,7 @@ const DropdownSubTrigger = styled(RadixDropdown.SubTrigger, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: '4px 32px 4px 28px',
+  padding: '$1 $9 $1 $8',
   fontSize: '$body2',
   lineHeight: '$body2',
   gap: '$4',
@@ -327,12 +396,14 @@ const DropdownMenuRadioItem = ({
   disabled = false,
   onSelect,
   children,
+  size,
   ...props
 }: {
   value: string;
   disabled?: boolean;
   onSelect?: () => void;
   children: any;
+  size?: 'small' | 'medium';
 }) => {
   return (
     <DropdownRadioItem
@@ -344,9 +415,11 @@ const DropdownMenuRadioItem = ({
       disabled={disabled}
       {...props}
     >
-      <DropdownItemIndicator>
-        <FontAwesomeIcon icon={faCircle} />
-      </DropdownItemIndicator>
+      <DropdownItemIndicatorRoot variant="radio" size={size}>
+        <DropdownItemIndicator>
+          <FontAwesomeIcon icon={faCircle} />
+        </DropdownItemIndicator>
+      </DropdownItemIndicatorRoot>
       {children}
     </DropdownRadioItem>
   );
@@ -358,6 +431,7 @@ const DropdownMenuCheckboxItem = ({
   disabled,
   onSelect,
   children,
+  size,
   ...props
 }: {
   checked: boolean;
@@ -365,6 +439,7 @@ const DropdownMenuCheckboxItem = ({
   disabled?: boolean;
   onSelect?: () => void;
   children: any;
+  size?: 'small' | 'medium';
 }) => {
   return (
     <DropdownCheckboxItem
@@ -377,9 +452,11 @@ const DropdownMenuCheckboxItem = ({
       }}
       {...props}
     >
-      <DropdownItemIndicator>
-        <FontAwesomeIcon icon={faCheck} />
-      </DropdownItemIndicator>
+      <DropdownItemIndicatorRoot size={size}>
+        <DropdownItemIndicator>
+          <FontAwesomeIcon icon={faCheck} />
+        </DropdownItemIndicator>
+      </DropdownItemIndicatorRoot>
       {children}
     </DropdownCheckboxItem>
   );
