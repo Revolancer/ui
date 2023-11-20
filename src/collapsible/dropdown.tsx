@@ -151,7 +151,6 @@ const DropdownLabel = styled(RadixDropdown.Label, {
   fontSize: '$body2',
   lineHeight: '$body2',
   color: '$neutral900',
-  marginLeft: '$3',
 
   [`.${darkTheme} &`]: {
     color: '$neutral100',

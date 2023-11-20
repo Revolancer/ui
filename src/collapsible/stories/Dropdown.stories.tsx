@@ -79,7 +79,9 @@ const meta = {
           onValueChange={(value) => setPerson(value)}
         >
           <DropdownMenuRadioItem value="B1">B1</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="B2" size='medium'>B2</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="B2" size="medium">
+            B2
+          </DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="B3" disabled>
             B3
           </DropdownMenuRadioItem>
