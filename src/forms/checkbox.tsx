@@ -56,6 +56,7 @@ export const Checkbox = ({
   defaultChecked = false,
   checked = false,
   required = false,
+  disabled = false,
 }: {
   name?: string;
   children: any;
@@ -63,6 +64,7 @@ export const Checkbox = ({
   defaultChecked?: boolean | 'indeterminate';
   checked?: boolean | 'indeterminate';
   required?: boolean;
+  disabled?: boolean;
 }) => {
   if (typeof id == 'undefined') {
     id = `check-${Math.random()}`;
@@ -83,6 +85,7 @@ export const Checkbox = ({
         onCheckedChange={(checked) =>
           setFieldValue(name ?? '', checked === true)
         }
+        disabled={disabled}
       >
         <CheckboxIndicator>
           <FontAwesomeIcon icon={faCheck} />
