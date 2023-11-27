@@ -1,6 +1,6 @@
 {
   "name": "@revolancer/ui",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Revolancer UI Library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -69,10 +69,6 @@
     {
       "name": "Ponch Salvador",
       "email": "ponch@revolancer.com"
-    },
-    {
-      "name": "Pradipta Ghoshal",
-      "email": "pradipta@revolancer.com"
     }
   ],
   "license": "UNLICENSED",
