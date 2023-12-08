@@ -334,7 +334,7 @@ const Dropdown = ({
   return (
     <DropdownRoot onOpenChange={onOpen} open={open} css={{ ...rootCss }}>
       <DropdownTrigger css={{ ...triggerCss }}>
-        <DropdownLabel>{placeholder}</DropdownLabel>
+        {placeholder}
         <RightSlot>
           <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} />
         </RightSlot>
