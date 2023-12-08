@@ -319,7 +319,6 @@ const Dropdown = ({
   open,
   onOpen,
   children,
-  rootCss,
   triggerCss,
   contentCss,
 }: {
@@ -327,12 +326,11 @@ const Dropdown = ({
   open: boolean;
   onOpen: () => void;
   children: any;
-  rootCss?: object;
   triggerCss?: object;
   contentCss?: object;
 }) => {
   return (
-    <DropdownRoot onOpenChange={onOpen} open={open} css={{ ...rootCss }}>
+    <DropdownRoot onOpenChange={onOpen} open={open}>
       <DropdownTrigger css={{ ...triggerCss }}>
         {placeholder}
         <RightSlot>

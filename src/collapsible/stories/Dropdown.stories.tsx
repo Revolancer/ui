@@ -15,8 +15,9 @@ import {
 const meta = {
   title: 'Collapsible/Dropdown',
   component: Dropdown,
+  tags: ['autodocs'],
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
   },
   argTypes: {
     placeholder: {
@@ -38,11 +39,23 @@ const meta = {
     const [urlsChecked, setUrlsChecked] = useState(false);
     const [person, setPerson] = useState('B1');
 
+    const mobileBP = window.innerWidth < 600;
+    const mobileContentStyle = {
+      position: 'fixed',
+      width: '100vw',
+      top: '0vh',
+      left: '0vw',
+      boxShadow: '$0',
+      borderRadius: '$0',
+    };
+
     return (
       <Dropdown
         open={isOpen}
         onOpen={() => setIsOpen(!isOpen)}
         placeholder="Dropdown"
+        triggerCss={mobileBP ? { width: '50%' } : { width: '20%' }}
+        contentCss={mobileBP ? mobileContentStyle : {}}
         {...args}
       >
         <DropdownLabel>Sub Menu</DropdownLabel>
