@@ -332,15 +332,17 @@ const Dropdown = ({
   contentCss?: object;
 }) => {
   return (
-    <DropdownRoot onOpenChange={onOpen} open={open} css={{...rootCss}}>
-      <DropdownTrigger css={{...triggerCss}}>
+    <DropdownRoot onOpenChange={onOpen} open={open} css={{ ...rootCss }}>
+      <DropdownTrigger css={{ ...triggerCss }}>
         <DropdownLabel>{placeholder}</DropdownLabel>
         <RightSlot>
           <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} />
         </RightSlot>
       </DropdownTrigger>
       <RadixDropdown.Portal>
-        <DropdownContent sideOffset={12} css={{...contentCss}}>{children}</DropdownContent>
+        <DropdownContent sideOffset={12} css={{ ...contentCss }}>
+          {children}
+        </DropdownContent>
       </RadixDropdown.Portal>
     </DropdownRoot>
   );
@@ -360,7 +362,7 @@ const DropdownSubMenu = ({
   subMenuCss?: object;
 }) => {
   return (
-    <DropdownSub open={open} onOpenChange={onOpen} css={{...subMenuCss}}>
+    <DropdownSub open={open} onOpenChange={onOpen} css={{ ...subMenuCss }}>
       <DropdownSubTrigger>
         <DropdownLabel>{placeholder}</DropdownLabel>
         <RightSlot>
@@ -381,7 +383,7 @@ const DropdownMenuItem = ({
   children: any;
   css?: object;
 }) => {
-  return <DropdownItem css={{...css}}>{children}</DropdownItem>;
+  return <DropdownItem css={{ ...css }}>{children}</DropdownItem>;
 };
 
 const DropdownMenuRadioGroup = ({
