@@ -6,6 +6,7 @@ import {
   faCheck,
   faChevronDown,
   faChevronRight,
+  faChevronUp,
   faCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -318,22 +319,28 @@ const Dropdown = ({
   open,
   onOpen,
   children,
+  rootCss,
+  triggerCss,
+  contentCss,
 }: {
   placeholder: string;
   open: boolean;
   onOpen: () => void;
   children: any;
+  rootCss?: object;
+  triggerCss?: object;
+  contentCss?: object;
 }) => {
   return (
-    <DropdownRoot onOpenChange={onOpen} open={open}>
-      <DropdownTrigger>
+    <DropdownRoot onOpenChange={onOpen} open={open} css={{...rootCss}}>
+      <DropdownTrigger css={{...triggerCss}}>
         <DropdownLabel>{placeholder}</DropdownLabel>
         <RightSlot>
-          <FontAwesomeIcon icon={faChevronDown} />
+          <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} />
         </RightSlot>
       </DropdownTrigger>
       <RadixDropdown.Portal>
-        <DropdownContent sideOffset={12}>{children}</DropdownContent>
+        <DropdownContent sideOffset={12} css={{...contentCss}}>{children}</DropdownContent>
       </RadixDropdown.Portal>
     </DropdownRoot>
   );
@@ -344,14 +351,16 @@ const DropdownSubMenu = ({
   open,
   onOpen,
   children,
+  subMenuCss,
 }: {
   placeholder: string;
   open: boolean;
   onOpen: () => void;
   children: any;
+  subMenuCss?: object;
 }) => {
   return (
-    <DropdownSub open={open} onOpenChange={onOpen}>
+    <DropdownSub open={open} onOpenChange={onOpen} css={{...subMenuCss}}>
       <DropdownSubTrigger>
         <DropdownLabel>{placeholder}</DropdownLabel>
         <RightSlot>
@@ -365,8 +374,14 @@ const DropdownSubMenu = ({
   );
 };
 
-const DropdownMenuItem = ({ children, ...props }: { children: any }) => {
-  return <DropdownItem {...props}>{children}</DropdownItem>;
+const DropdownMenuItem = ({
+  children,
+  css,
+}: {
+  children: any;
+  css?: object;
+}) => {
+  return <DropdownItem css={{...css}}>{children}</DropdownItem>;
 };
 
 const DropdownMenuRadioGroup = ({
