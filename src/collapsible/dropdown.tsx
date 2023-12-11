@@ -320,6 +320,7 @@ const Dropdown = ({
   onOpen,
   children,
   triggerCss,
+  portalCss,
   contentCss,
 }: {
   placeholder: string;
@@ -327,8 +328,11 @@ const Dropdown = ({
   onOpen: () => void;
   children: any;
   triggerCss?: object;
+  portalCss?: object;
   contentCss?: object;
 }) => {
+  const DropdownPortal = styled(RadixDropdown.Portal, { ...portalCss });
+
   return (
     <DropdownRoot onOpenChange={onOpen} open={open}>
       <DropdownTrigger css={{ ...triggerCss }}>
@@ -337,11 +341,11 @@ const Dropdown = ({
           <FontAwesomeIcon icon={open ? faChevronUp : faChevronDown} />
         </RightSlot>
       </DropdownTrigger>
-      <RadixDropdown.Portal>
+      <DropdownPortal>
         <DropdownContent sideOffset={12} css={{ ...contentCss }}>
           {children}
         </DropdownContent>
-      </RadixDropdown.Portal>
+      </DropdownPortal>
     </DropdownRoot>
   );
 };
