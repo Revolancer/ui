@@ -41,12 +41,13 @@ const meta = {
 
     const mobileBP = window.innerWidth < 600;
     const mobileContentStyle = {
-      position: 'fixed',
-      width: '100vw',
-      top: '0vh',
-      left: '0vw',
+      minWidth: '100vw',
+      minHeight: '74vh',
       boxShadow: '$0',
       borderRadius: '$0',
+    };
+    const mobilePositions = {
+      top: '30vh',
     };
 
     return (
@@ -55,6 +56,7 @@ const meta = {
         onOpen={() => setIsOpen(!isOpen)}
         placeholder="Dropdown"
         triggerCss={mobileBP ? { width: '50%' } : { width: '20%' }}
+        portalCss={mobileBP ? mobilePositions : {}}
         contentCss={mobileBP ? mobileContentStyle : {}}
         {...args}
       >
