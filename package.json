@@ -83,7 +83,7 @@
     "@storybook/testing-library": "^0.2.2",
     "@types/react-modal": "^3.16.3",
     "gh-pages": "^6.1.1",
-    "prettier": "^3.1.0",
+    "prettier": "^3.1.1",
     "react-dom": "^18.2.0",
     "storybook": "^7.6.7",
     "typescript": "^5.3.3"
