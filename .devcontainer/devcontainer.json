@@ -25,10 +25,10 @@
         "2gua.rainbow-brackets",
         "GitLab.gitlab-workflow",
         "eamodio.gitlens",
-        "eg2.vscode-npm-script"
-      ]
-    }
-  }
+        "eg2.vscode-npm-script",
+      ],
+    },
+  },
 
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
