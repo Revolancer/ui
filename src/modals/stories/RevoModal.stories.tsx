@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { RevoModal as Modal } from '..';
-import { Button } from '../../buttons';
+import { Button, FormButton } from '../../buttons';
 import { H3, P } from '../../text';
 import { useState } from 'react';
 import { Flex } from '../../layout';
@@ -111,25 +111,19 @@ export const WithOpenModalCTA: Story = {
     ...Default.args,
     openOnTrigger: false,
     showModalOpenCTA: true,
-    renderChildren: ({ close }) => {
-      return (
-        <>
-          <Flex>
-            <P>THE MODAL IS OPEN</P>
-          </Flex>
-          <Flex>
-            <Button
-              role="primary"
-              href="#"
-              size="small"
-              onClick={() => close()}
-            >
-              Close Modal
-            </Button>
-          </Flex>
-        </>
-      );
-    },
+    renderCTA: ({ open }) => <FormButton onClick={open}>hello</FormButton>,
+    renderChildren: ({ close }) => (
+      <>
+        <Flex>
+          <P>THE MODAL IS OPEN</P>
+        </Flex>
+        <Flex>
+          <Button role="primary" href="#" size="small" onClick={close}>
+            Close Modal
+          </Button>
+        </Flex>
+      </>
+    ),
   },
   render: (args) => {
     return (
