@@ -1,7 +1,7 @@
 import Modal from 'react-modal';
 import { Card, Flex } from '../layout';
 import { ReactNode, useEffect, useState } from 'react';
-import { Button } from '../buttons';
+import { FormButton } from '../buttons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 export interface ModalProps {
@@ -19,6 +19,7 @@ export interface ModalProps {
   onClose?: () => void;
   /** Additional modal Card CSS */
   css?: object;
+  contentCss?: object;
 }
 
 /** A Reusable Modal Component for Revolancer UI library */
@@ -30,6 +31,7 @@ export const RevoModal = ({
   onClose,
   renderCTA,
   css = {},
+  contentCss = {},
 }: ModalProps) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const modalOpen = () => {
@@ -56,7 +58,6 @@ export const RevoModal = ({
       border: 'none',
       overflow: 'visible',
       padding: '0',
-      ...css,
     },
   };
 
@@ -67,8 +68,7 @@ export const RevoModal = ({
         height: '$2',
       }}
     >
-      <Button
-        href="#"
+      <FormButton
         onClick={() => {
           if (onClose) {
             onClose();
@@ -81,7 +81,8 @@ export const RevoModal = ({
           backgroundColor: '$background',
           borderWidth: '0px',
           color: '$neutral400',
-          boxShadow: '0px',
+          borderShadow: '$0',
+          boxShadow: '$0',
           borderRadius: '$3',
           position: 'absolute',
           top: '3px',
@@ -96,19 +97,17 @@ export const RevoModal = ({
         }}
       >
         <FontAwesomeIcon icon={faXmark} />
-      </Button>
+      </FormButton>
     </Flex>
   );
 
-  const renderOpenModal =
-    showModalOpenCTA &&
-    (renderCTA ? (
-      renderCTA({ open: modalOpen })
-    ) : (
-      <Button role="primary" href="#" onClick={() => modalOpen()}>
-        Open
-      </Button>
-    ));
+  const renderOpenModal = renderCTA
+    ? renderCTA({ open: modalOpen })
+    : showModalOpenCTA && (
+        <FormButton role="primary" onClick={() => modalOpen()}>
+          Open
+        </FormButton>
+      );
 
   return (
     <>
@@ -130,6 +129,7 @@ export const RevoModal = ({
             color: '$neutral700',
             alignItems: 'center',
             justifyContent: 'center',
+            ...css,
           }}
         >
           {showCloseIcon && renderCloseIcon}
@@ -139,6 +139,7 @@ export const RevoModal = ({
             css={{
               alignItems: 'center',
               justifyContent: 'center',
+              ...contentCss,
             }}
           >
             {renderChildren({ close: modalClose })}
