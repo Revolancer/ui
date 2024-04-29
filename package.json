@@ -103,7 +103,7 @@
     "@stitches/react": "^1.2.8",
     "formik": "^2.4.5",
     "next": "^14.1.0",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-interactive": "^1.1.2",
     "react-modal": "^3.16.1"
   },
