@@ -101,7 +101,7 @@
     "@radix-ui/react-slider": "^1.1.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@stitches/react": "^1.2.8",
-    "formik": "^2.4.5",
+    "formik": "^2.4.6",
     "next": "^14.1.0",
     "react": "^18.2.0",
     "react-interactive": "^1.1.2",
